@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Tower extends Piece {
     private final TowerImage picture;
+    private boolean asMoved;
 
     public Tower(Team team, Position position) {
         super(team, position);
@@ -17,6 +18,10 @@ public class Tower extends Piece {
 
     public TowerImage getPicture() {
         return picture;
+    }
+
+    public boolean asMoved() {
+        return asMoved;
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Pawn extends Piece {
     private final PawnImage picture;
+    private boolean asMoved;
 
     public Pawn(Team team, Position position) {
         super(team, position);
@@ -26,7 +27,7 @@ public class Pawn extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
