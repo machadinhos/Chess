@@ -34,7 +34,7 @@ public class Horse extends Piece {
         }
 
         for (Piece piece : piecesSameTeam) {
-            if (position.getRow() == piece.getPosition().getRow() && position.getCol() == piece.getPosition().getCol()) {
+            if (piece.getPosition().equals(position)) {
                 return false;
             }
         }

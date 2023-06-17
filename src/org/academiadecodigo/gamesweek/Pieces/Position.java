@@ -9,16 +9,20 @@ public class Position {
         this.col = col;
     }
 
+    public void setNewPosition(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+
+    public boolean equals(Position position) {
+        return this.row == position.getRow() && this.col == position.getCol();
+    }
+
     public int getRow() {
         return row;
     }
 
     public int getCol() {
         return col;
-    }
-
-    public void setNewPosition(int row, int col) {
-        this.row = row;
-        this.col = col;
     }
 }
