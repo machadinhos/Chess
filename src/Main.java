@@ -2,12 +2,12 @@ import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Bishop;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.Position.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Field;
-import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.BishopImage;
 
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Field.init();
+
 
         Bishop bishopw = new Bishop(Team.WHITE, new Position(5, 1));
         Bishop bishopb = new Bishop(Team.BLACK, new Position(7, 7));
@@ -22,6 +22,5 @@ public class Main {
 
         bishopb.getPosition().setNewPosition(7, 7);
         bishopb.getPicture().updateImagePosition();
-
     }
 }

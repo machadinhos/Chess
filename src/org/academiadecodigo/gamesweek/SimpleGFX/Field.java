@@ -8,7 +8,7 @@ public class Field {
     public static final int PADDING = 10;
     private static final Rectangle[][] boardSquares = new Rectangle[8][8];
 
-    public static void init () {
+    public static void init() {
         int xPosition = PADDING;
         int yPosition = PADDING;
         Color color = Color.WHITE;
@@ -40,5 +40,7 @@ public class Field {
             xPosition = PADDING;
             yPosition += SQUARESIZE;
         }
+
+        Labels.init();
     }
 }
