@@ -1,11 +1,9 @@
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-
-        Picture picture = new Picture(10, 10, "resources/ChessPieces/bB.png");
-
-        picture.draw();
+        Rectangle rectangle = new Rectangle(10,10,1900,1040);
+        rectangle.draw();
     }
 }
