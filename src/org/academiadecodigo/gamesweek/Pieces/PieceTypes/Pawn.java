@@ -26,7 +26,7 @@ public class Pawn extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        throw new UnsupportedOperationException();
+
     }
 
     @Override

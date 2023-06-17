@@ -26,7 +26,27 @@ public class King extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        throw new UnsupportedOperationException();
+        List<Piece> piecesSameTeam;
+        if (super.getTeam() == Team.WHITE) {
+            piecesSameTeam = whiteTeam;
+        } else {
+            piecesSameTeam = blackTeam;
+        }
+
+        for (Piece piece : piecesSameTeam) {
+            if (position.getRow() == piece.getPosition().getRow() && position.getCol() == piece.getPosition().getCol()) {
+                return false;
+            }
+        }
+
+        return (super.getPosition().getCol() + 1 == position.getCol() && super.getPosition().getRow() == position.getRow()) ||
+                (super.getPosition().getCol() == position.getCol() && super.getPosition().getRow() + 1 == position.getRow()) ||
+                (super.getPosition().getCol() - 1 == position.getCol() && super.getPosition().getRow() == position.getRow()) ||
+                (super.getPosition().getCol() == position.getCol() && super.getPosition().getRow() - 1 == position.getRow()) ||
+                (super.getPosition().getCol() - 1 == position.getCol() && super.getPosition().getRow() + 1 == position.getRow()) ||
+                (super.getPosition().getCol() - 1 == position.getCol() && super.getPosition().getRow() - 1 == position.getRow()) ||
+                (super.getPosition().getCol() + 1 == position.getCol() && super.getPosition().getRow() - 1 == position.getRow()) ||
+                (super.getPosition().getCol() + 1 == position.getCol() && super.getPosition().getRow() + 1 == position.getRow());
     }
 
     @Override
