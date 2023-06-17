@@ -10,15 +10,24 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         new Field();
 
-        BishopImage bw =  new BishopImage(new Bishop(Team.BLACK, new Position(1, 1)));
-        BishopImage bb = new BishopImage(new Bishop(Team.WHITE, new Position(2, 1)));
+        Bishop bishopw = new Bishop(Team.WHITE, new Position(5, 1));
+        Bishop bishopb = new Bishop(Team.BLACK, new Position(7, 7));
+
+        BishopImage bw =  new BishopImage(bishopw);
+        BishopImage bb = new BishopImage(bishopb);
 
         Thread.sleep(500);
 
+        bishopb.getPosition().setNewPosition(2, 4);
+
         bw.updateImagePosition();
+        bb.updateImagePosition();
 
         Thread.sleep(500);
 
+        bishopb.getPosition().setNewPosition(7, 7);
+
         bw.updateImagePosition();
+        bb.updateImagePosition();
     }
 }
