@@ -1,6 +1,6 @@
 package org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages;
 
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Tower;
+import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PieceImage;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -8,10 +8,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class TowerImage extends PieceImage {
     private final Picture picture;
 
-    public TowerImage(Tower tower) {
-        super(tower);
+    public TowerImage(Piece piece) {
+        super(piece.getPosition());
 
-        if (tower.getTeam() == Team.WHITE) {
+        if (piece.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wR.png");
         } else {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bR.png");

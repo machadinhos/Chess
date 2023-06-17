@@ -1,6 +1,6 @@
 package org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages;
 
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Queen;
+import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PieceImage;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -8,10 +8,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class QueenImage extends PieceImage {
     private final Picture picture;
 
-    public QueenImage(Queen queen) {
-        super(queen);
+    public QueenImage(Piece piece) {
+        super(piece.getPosition());
 
-        if (queen.getTeam() == Team.WHITE) {
+        if (piece.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wQ.png");
         } else {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bQ.png");

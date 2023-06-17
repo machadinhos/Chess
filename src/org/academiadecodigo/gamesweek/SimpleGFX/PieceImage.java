@@ -1,19 +1,18 @@
 package org.academiadecodigo.gamesweek.SimpleGFX;
 
-import org.academiadecodigo.gamesweek.Pieces.Piece;
-import org.academiadecodigo.gamesweek.Pieces.Team;
+import org.academiadecodigo.gamesweek.Position.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class PieceImage {
-    private final Piece piece;
+    private final Position position;
     private int xPosition;
     private int yPosition;
 
-    public PieceImage(Piece piece) {
-        this.piece = piece;
+    public PieceImage(Position position) {
+        this.position = position;
 
-        this.xPosition = piece.getPosition().getCol() * Field.SQUARESIZE + Field.PADDING;
-        this.yPosition = piece.getPosition().getRow() * Field.SQUARESIZE + Field.PADDING;
+        this.xPosition = position.getCol() * Field.SQUARESIZE + Field.PADDING;
+        this.yPosition = position.getRow() * Field.SQUARESIZE + Field.PADDING;
     }
 
     public int getxPosition() {
@@ -24,16 +23,13 @@ public abstract class PieceImage {
         return yPosition;
     }
 
-    public void updateImagePosition (Picture picture) {
-        int xPixelsMoved = piece.getPosition().getCol() * Field.SQUARESIZE - xPosition + Field.PADDING;
-        int yPixelsMoved = piece.getPosition().getRow() * Field.SQUARESIZE - yPosition + Field.PADDING;
-
-        System.out.println(xPixelsMoved);
-        System.out.println(yPixelsMoved);
+    public void updateImagePosition(Picture picture) {
+        int xPixelsMoved = position.getCol() * Field.SQUARESIZE - xPosition + Field.PADDING;
+        int yPixelsMoved = position.getRow() * Field.SQUARESIZE - yPosition + Field.PADDING;
 
         picture.translate(xPixelsMoved, yPixelsMoved);
 
-        this.xPosition = piece.getPosition().getCol() * Field.SQUARESIZE + Field.PADDING;
-        this.yPosition = piece.getPosition().getRow() * Field.SQUARESIZE + Field.PADDING;
+        this.xPosition = position.getCol() * Field.SQUARESIZE + Field.PADDING;
+        this.yPosition = position.getRow() * Field.SQUARESIZE + Field.PADDING;
     }
 }

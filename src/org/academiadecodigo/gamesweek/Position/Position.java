@@ -17,7 +17,7 @@ public class Position {
         return col;
     }
 
-    public void setNewPosition (int row, int col) {
+    public void setNewPosition(int row, int col) {
         this.row = row;
         this.col = col;
     }

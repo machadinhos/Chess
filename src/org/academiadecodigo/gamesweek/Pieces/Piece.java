@@ -11,6 +11,10 @@ public abstract class Piece {
         this.position = position;
     }
 
+    public Piece getCopy() {
+        return this;
+    }
+
     public Position getPosition() {
         return position;
     }
@@ -19,11 +23,11 @@ public abstract class Piece {
         return team;
     }
 
-    public void setNewPosition (int row, int col) {
+    public void setNewPosition(int row, int col) {
         this.position.setNewPosition(row, col);
     }
 
-    public abstract void move (Position newPosition);
+    public abstract void move(Position newPosition);
 
-    public abstract boolean checkValidMove ();
+    public abstract boolean checkValidMove();
 }
