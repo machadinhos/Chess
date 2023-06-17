@@ -9,8 +9,8 @@ public class Field {
      private static final Rectangle[][] boardSquares = new Rectangle[8][8];
 
      public Field(){
-          int xPosition = SQUARESIZE + PADDING;
-          int yPosition = SQUARESIZE + PADDING;
+          int xPosition = PADDING;
+          int yPosition = PADDING;
           Color color = Color.WHITE;
 
           for (int row = 0; row < boardSquares.length; row++) {
@@ -26,7 +26,14 @@ public class Field {
                     }
                     xPosition += SQUARESIZE;
                }
-               xPosition = SQUARESIZE + PADDING;
+
+               if (color.equals(Color.WHITE)) {
+                    color = Color.BLACK;
+               } else {
+                    color = Color.WHITE;
+               }
+
+               xPosition = PADDING;
                yPosition += SQUARESIZE;
           }
 
