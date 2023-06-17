@@ -11,8 +11,8 @@ public abstract class PieceImage {
     public PieceImage(Position position) {
         this.position = position;
 
-        this.xPosition = position.getCol() * Field.SQUARESIZE + Field.PADDING;
-        this.yPosition = position.getRow() * Field.SQUARESIZE + Field.PADDING;
+        this.xPosition = position.getCol() * Board.SQUARESIZE + Board.PADDING;
+        this.yPosition = position.getRow() * Board.SQUARESIZE + Board.PADDING;
     }
 
     public int getxPosition() {
@@ -24,12 +24,12 @@ public abstract class PieceImage {
     }
 
     public void updateImagePosition(Picture picture) {
-        int xPixelsMoved = position.getCol() * Field.SQUARESIZE - xPosition + Field.PADDING;
-        int yPixelsMoved = position.getRow() * Field.SQUARESIZE - yPosition + Field.PADDING;
+        int xPixelsMoved = position.getCol() * Board.SQUARESIZE - xPosition + Board.PADDING;
+        int yPixelsMoved = position.getRow() * Board.SQUARESIZE - yPosition + Board.PADDING;
 
         picture.translate(xPixelsMoved, yPixelsMoved);
 
-        this.xPosition = position.getCol() * Field.SQUARESIZE + Field.PADDING;
-        this.yPosition = position.getRow() * Field.SQUARESIZE + Field.PADDING;
+        this.xPosition = position.getCol() * Board.SQUARESIZE + Board.PADDING;
+        this.yPosition = position.getRow() * Board.SQUARESIZE + Board.PADDING;
     }
 }

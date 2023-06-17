@@ -1,8 +1,8 @@
 package org.academiadecodigo.gamesweek.Pieces.PieceTypes;
 
 import org.academiadecodigo.gamesweek.Pieces.Piece;
-import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.Pieces.Position;
+import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.QueenImage;
 
 public class Queen extends Piece {
