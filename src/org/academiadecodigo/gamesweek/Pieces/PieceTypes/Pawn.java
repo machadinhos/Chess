@@ -1,11 +1,12 @@
 package org.academiadecodigo.gamesweek.Pieces.PieceTypes;
 
 import org.academiadecodigo.gamesweek.Pieces.Piece;
+import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.Position.Position;
 
 public class Pawn extends Piece {
-    public Pawn (Position position) {
-        super(position);
+    public Pawn (Team team, Position position) {
+        super(team, position);
     }
 
     @Override
