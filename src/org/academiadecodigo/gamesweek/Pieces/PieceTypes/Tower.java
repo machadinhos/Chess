@@ -25,7 +25,7 @@ public class Tower extends Piece {
     }
 
     @Override
-    public boolean checkValidMove() {
+    public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         throw new UnsupportedOperationException();
     }
 

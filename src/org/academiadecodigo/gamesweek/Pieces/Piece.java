@@ -29,7 +29,7 @@ public abstract class Piece {
 
     public abstract void move(Position newPosition);
 
-    public abstract boolean checkValidMove();
+    public abstract boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam);
 
-    public abstract List<Position> getValidMoves ();
+    public abstract List<Position> getValidMoves();
 }

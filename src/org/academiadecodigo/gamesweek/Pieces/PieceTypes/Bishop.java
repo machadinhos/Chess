@@ -5,6 +5,7 @@ import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.BishopImage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bishop extends Piece {
@@ -25,8 +26,34 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean checkValidMove() {
-        throw new UnsupportedOperationException();
+    public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+        if (position.getCol() - position.getRow() == 0) {
+            int col = super.getPosition().getCol();
+            int row = super.getPosition().getRow();
+
+            List<Piece> jointPieces = new ArrayList<>(whiteTeam);
+            jointPieces.addAll(blackTeam);
+
+            while (position.getCol() != col && position.getRow() != row) {
+                if (col < position.getCol()) {
+                    col += 1;
+                } else if (col > position.getCol()) {
+                    col -= 1;
+                }
+                if (row < position.getRow()) {
+                    row += 1;
+                } else if (col > position.getRow()) {
+                    row -= 1;
+                }
+
+                for (Piece whitePiece : jointPieces) {
+                    if (whitePiece.getPosition().getRow() == row && whitePiece.getPosition().getCol() == col) {
+                        return super.getTeam() != whitePiece.getTeam();
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     @Override
