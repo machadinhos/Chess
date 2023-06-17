@@ -9,6 +9,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         new Field();
+
         BishopImage bw =  new BishopImage(new Bishop(Team.BLACK, new Position(1, 1)));
         BishopImage bb = new BishopImage(new Bishop(Team.WHITE, new Position(2, 1)));
 
