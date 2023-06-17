@@ -1,6 +1,6 @@
 package org.academiadecodigo.gamesweek.SimpleGFX;
 
-import org.academiadecodigo.gamesweek.Position.Position;
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class PieceImage {

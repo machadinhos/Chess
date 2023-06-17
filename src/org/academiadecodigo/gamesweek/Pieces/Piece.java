@@ -1,7 +1,5 @@
 package org.academiadecodigo.gamesweek.Pieces;
 
-import org.academiadecodigo.gamesweek.Position.Position;
-
 public abstract class Piece {
     private final Team team;
     private final Position position;

@@ -2,7 +2,7 @@ package org.academiadecodigo.gamesweek.Pieces.PieceTypes;
 
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.Team;
-import org.academiadecodigo.gamesweek.Position.Position;
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.TowerImage;
 
 public class Tower extends Piece {

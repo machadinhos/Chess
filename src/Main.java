@@ -1,6 +1,6 @@
 import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Bishop;
 import org.academiadecodigo.gamesweek.Pieces.Team;
-import org.academiadecodigo.gamesweek.Position.Position;
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Field;
 
 

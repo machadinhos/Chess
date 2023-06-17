@@ -1,4 +1,4 @@
-package org.academiadecodigo.gamesweek.Position;
+package org.academiadecodigo.gamesweek.Pieces;
 
 public class Position {
     private int row;
