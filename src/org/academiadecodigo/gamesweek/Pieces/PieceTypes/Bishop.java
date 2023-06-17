@@ -46,12 +46,17 @@ public class Bishop extends Piece {
                     row -= 1;
                 }
 
-                for (Piece whitePiece : jointPieces) {
-                    if (whitePiece.getPosition().getRow() == row && whitePiece.getPosition().getCol() == col) {
-                        return super.getTeam() != whitePiece.getTeam();
+                for (Piece piece : jointPieces) {
+                    if (piece.getPosition().getRow() == row && piece.getPosition().getCol() == col) {
+                        if (col == position.getCol() && row == position.getRow()) {
+                            return super.getTeam() != piece.getTeam();
+                        } else {
+                            return false;
+                        }
                     }
                 }
             }
+            return true;
         }
         return false;
     }
