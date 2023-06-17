@@ -25,4 +25,3 @@ public class KingImage extends PieceImage {
         super.updateImagePosition(this.picture);
     }
 }
-

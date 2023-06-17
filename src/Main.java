@@ -3,8 +3,7 @@ import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.Position.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Field;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.BishopImage;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
