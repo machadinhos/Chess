@@ -4,8 +4,8 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Field {
-     private static final int SQUARESIZE = 70;
-     private static final int PADDING = 10;
+     public static final int SQUARESIZE = 90;
+     public static final int PADDING = 10;
      private static final Rectangle[][] boardSquares = new Rectangle[8][8];
 
      public Field(){
