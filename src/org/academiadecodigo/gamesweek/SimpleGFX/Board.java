@@ -1,13 +1,20 @@
 package org.academiadecodigo.gamesweek.SimpleGFX;
 
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
     public static final int SQUARESIZE = 90;
     public static final int PADDING = 10;
+    private static final int VALIDMOVESRADIUS = 45;
     private static final Rectangle[][] boardSquares = new Rectangle[8][8];
+    private static List<Ellipse> validMoves;
 
     public static void init() {
         int xPosition = PADDING;
@@ -139,5 +146,28 @@ public class Board {
         letter8.setColor(Color.BLACK);
         letter8.grow(4, 8);
         letter8.draw();
+    }
+
+    public static void showValidMoves(List<Position> validMoves) {
+        Board.validMoves = new ArrayList<>();
+        Ellipse circle;
+        for (Position move : validMoves) {
+            circle = new Ellipse(positionToPixel(move)[0] + (double) VALIDMOVESRADIUS / 2, positionToPixel(move)[1] + (double) VALIDMOVESRADIUS / 2, VALIDMOVESRADIUS, VALIDMOVESRADIUS);
+            circle.setColor(Color.LIGHT_GRAY);
+            circle.fill();
+
+            Board.validMoves.add(circle);
+        }
+    }
+
+    public static int[] positionToPixel(Position position) {
+        return new int[]{position.getCol() * Board.SQUARESIZE + Board.PADDING, position.getRow() * Board.SQUARESIZE + Board.PADDING};
+    }
+
+    public static void hideValidMoves() {
+        for (Ellipse move : validMoves) {
+            move.delete();
+        }
+        validMoves = null;
     }
 }

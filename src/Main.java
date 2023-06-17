@@ -1,9 +1,13 @@
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Board.init();
 
 //        Bishop bishopw = new Bishop(Team.WHITE, new Position(5, 1));
@@ -21,5 +25,15 @@ public class Main {
 
         PieceInitializer.initWhitePieces();
         PieceInitializer.initBlackPieces();
+
+        List<Position> valid = new ArrayList<>();
+        valid.add(new Position(2, 2));
+        valid.add(new Position(5, 2));
+
+        Board.showValidMoves(valid);
+
+        Thread.sleep(1500);
+
+        Board.hideValidMoves();
     }
 }
