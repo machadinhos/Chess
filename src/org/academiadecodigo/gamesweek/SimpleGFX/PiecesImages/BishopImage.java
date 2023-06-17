@@ -14,7 +14,7 @@ public class BishopImage extends PieceImage {
         if (bishop.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wB.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), getyPosition(), "resources/ChessPieces/bB.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bB.png");
         }
 
         this.picture.draw();
