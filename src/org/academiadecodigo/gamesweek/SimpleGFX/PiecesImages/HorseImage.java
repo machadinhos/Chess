@@ -25,4 +25,3 @@ public class HorseImage  extends PieceImage {
         super.updateImagePosition(this.picture);
     }
 }
-

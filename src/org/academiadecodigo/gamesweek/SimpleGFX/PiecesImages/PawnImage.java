@@ -25,4 +25,3 @@ public class PawnImage extends PieceImage {
         super.updateImagePosition(this.picture);
     }
 }
-
