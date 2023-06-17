@@ -1,5 +1,7 @@
 package org.academiadecodigo.gamesweek.Pieces;
 
+import java.util.List;
+
 public abstract class Piece {
     private final Team team;
     private final Position position;
@@ -28,4 +30,6 @@ public abstract class Piece {
     public abstract void move(Position newPosition);
 
     public abstract boolean checkValidMove();
+
+    public abstract List<Position> getValidMoves ();
 }

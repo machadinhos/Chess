@@ -5,6 +5,8 @@ import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.BishopImage;
 
+import java.util.List;
+
 public class Bishop extends Piece {
     private final BishopImage picture;
 
@@ -24,6 +26,11 @@ public class Bishop extends Piece {
 
     @Override
     public boolean checkValidMove() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<Position> getValidMoves() {
         throw new UnsupportedOperationException();
     }
 }

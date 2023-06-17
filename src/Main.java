@@ -3,7 +3,7 @@ import org.academiadecodigo.gamesweek.SimpleGFX.Board;
 
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         Board.init();
 
 //        Bishop bishopw = new Bishop(Team.WHITE, new Position(5, 1));
