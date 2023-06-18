@@ -49,7 +49,7 @@ public class PieceInitializer {
         pieces.add(new Bishop(Team.BLACK, new Position(0, 5)));
 
         pieces.add(new Queen(Team.BLACK, new Position(0, 3)));
-        pieces.add(new King(Team.BLACK, new Position(4, 3)));
+        pieces.add(new King(Team.BLACK, new Position(5, 3)));
 
         for (Piece piece : pieces) {
             piece.initImage();

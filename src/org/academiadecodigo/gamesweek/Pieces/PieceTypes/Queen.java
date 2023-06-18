@@ -38,17 +38,17 @@ public class Queen extends Piece {
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
 
-        if (Math.abs(super.getPosition().getCol() - position.getCol()) == Math.abs(super.getPosition().getRow() - position.getRow())) {
+        if (Math.abs(col - position.getCol()) == Math.abs(row - position.getRow())) {
             while (position.getCol() != col && position.getRow() != row) {
                 if (col < position.getCol()) {
-                    col += 1;
+                    col++;
                 } else if (col > position.getCol()) {
-                    col -= 1;
+                    col--;
                 }
                 if (row < position.getRow()) {
-                    row += 1;
-                } else if (col > position.getRow()) {
-                    row -= 1;
+                    row++;
+                } else if (row > position.getRow()) {
+                    row--;
                 }
 
                 for (Piece piece : jointPieces) {
@@ -63,18 +63,18 @@ public class Queen extends Piece {
             }
             return true;
         } else if (position.getCol() == super.getPosition().getCol() ^ position.getRow() == super.getPosition().getRow()) {
-            while (position.getCol() != col && position.getRow() != row) {
+            while (position.getCol() != col || position.getRow() != row) {
                 if (position.getCol() == super.getPosition().getCol()) {
                     if (row < position.getRow()) {
-                        row += 1;
+                        row++;
                     } else if (row > position.getRow()) {
-                        row -= 1;
+                        row--;
                     }
                 } else {
                     if (col < position.getCol()) {
-                        col += 1;
+                        col++;
                     } else if (col > position.getCol()) {
-                        col -= 1;
+                        col--;
                     }
                 }
 

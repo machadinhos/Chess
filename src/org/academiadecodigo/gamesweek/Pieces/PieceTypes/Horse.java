@@ -83,9 +83,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -107,9 +114,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -131,9 +145,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -155,9 +176,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -179,9 +207,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -203,9 +238,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -227,9 +269,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
@@ -251,9 +300,16 @@ public class Horse extends Piece {
             sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
-                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
-                    isKingSafe = false;
-                    break;
+                if (super.getTeam() == Team.WHITE) {
+                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                        isKingSafe = false;
+                        break;
+                    }
+                } else {
+                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                        isKingSafe = false;
+                        break;
+                    }
                 }
             }
 
