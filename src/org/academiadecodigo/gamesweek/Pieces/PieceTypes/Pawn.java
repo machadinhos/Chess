@@ -62,7 +62,7 @@ public class Pawn extends Piece {
         return true;
     }
 
-    public boolean checkDoubleMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+    private boolean checkDoubleMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (super.getPosition().getCol() != position.getCol()) {
             return false;
         }

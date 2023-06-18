@@ -27,7 +27,7 @@ public class Bishop extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (position.getCol() - position.getRow() == 0) {
+        if (super.getPosition().getCol() - super.getPosition().getRow() == position.getCol()-position.getRow()) {
             int col = super.getPosition().getCol();
             int row = super.getPosition().getRow();
 
@@ -42,7 +42,7 @@ public class Bishop extends Piece {
                 }
                 if (row < position.getRow()) {
                     row += 1;
-                } else if (col > position.getRow()) {
+                } else if (row > position.getRow()) {
                     row -= 1;
                 }
 

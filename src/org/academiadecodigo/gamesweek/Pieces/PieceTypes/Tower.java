@@ -31,7 +31,11 @@ public class Tower extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        throw new UnsupportedOperationException();
+        if (position.getCol() != super.getPosition().getCol() && position.getRow() != super.getPosition().getRow()) {
+            return false;
+        }
+
+
     }
 
     @Override
