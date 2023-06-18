@@ -26,16 +26,6 @@ public class Main {
         PieceInitializer.initWhitePieces();
         PieceInitializer.initBlackPieces();
 
-        List<Position> valid = new ArrayList<>();
-        valid.add(new Position(2, 2));
-        valid.add(new Position(5, 2));
-
-        Board.showValidMoves(valid);
-
-        Thread.sleep(1000);
-
-        Board.hideValidMoves();
-
         Game.test();
     }
 }

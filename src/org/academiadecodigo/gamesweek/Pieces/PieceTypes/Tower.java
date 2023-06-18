@@ -21,8 +21,9 @@ public class Tower extends Piece {
     }
 
     @Override
-    public void move(Position newPosition) {
-        throw new UnsupportedOperationException();
+    public void move(int row, int col) {
+        super.move(row, col);
+        this.picture.updateImagePosition();
     }
 
     @Override

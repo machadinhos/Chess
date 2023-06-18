@@ -20,8 +20,9 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public void move(Position newPosition) {
-        throw new UnsupportedOperationException();
+    public void move(int row, int col) {
+        super.move(row, col);
+        this.picture.updateImagePosition();
     }
 
     @Override
@@ -87,7 +88,7 @@ public class Bishop extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        while (col < 7 && row < 7 && col > 0 && row > 0) {
+        while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -98,12 +99,12 @@ public class Bishop extends Piece {
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -121,7 +122,7 @@ public class Bishop extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        while (col < 7 && row < 7 && col > 0 && row > 0) {
+        while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -132,12 +133,12 @@ public class Bishop extends Piece {
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -155,7 +156,7 @@ public class Bishop extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        while (col < 7 && row < 7 && col > 0 && row > 0) {
+        while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -166,12 +167,12 @@ public class Bishop extends Piece {
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -189,7 +190,7 @@ public class Bishop extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        while (col < 7 && row < 7 && col > 0 && row > 0) {
+        while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -200,7 +201,7 @@ public class Bishop extends Piece {
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
                         isKingSafe = false;
                         break;
                     }

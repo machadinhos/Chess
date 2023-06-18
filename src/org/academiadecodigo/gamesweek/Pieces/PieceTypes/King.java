@@ -21,8 +21,9 @@ public class King extends Piece {
     }
 
     @Override
-    public void move(Position newPosition) {
-        throw new UnsupportedOperationException();
+    public void move(int row, int col) {
+        super.move(row, col);
+        this.picture.updateImagePosition();
     }
 
     @Override
@@ -130,7 +131,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -165,7 +166,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -200,7 +201,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -235,7 +236,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -270,7 +271,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -305,7 +306,7 @@ public class King extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -340,7 +341,7 @@ public class King extends Piece {
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -375,7 +376,7 @@ public class King extends Piece {
         row = super.getPosition().getRow();
         isKingSafe = true;
 
-        if (col < 7 && row < 7 && col > 0 && row > 0) {
+        if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
