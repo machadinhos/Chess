@@ -23,7 +23,7 @@ public class PieceInitializer {
         pieces.add(new Bishop(Team.WHITE, new Position(7, 5)));
 
         pieces.add(new Queen(Team.WHITE, new Position(7, 3)));
-        pieces.add(new King(Team.WHITE, new Position(7, 4)));
+        pieces.add(new King(Team.WHITE, new Position(5, 7)));
 
         for (Piece piece : pieces) {
             piece.initImage();
@@ -45,7 +45,7 @@ public class PieceInitializer {
         pieces.add(new Horse(Team.BLACK, new Position(0, 1)));
         pieces.add(new Horse(Team.BLACK, new Position(0, 6)));
 
-        pieces.add(new Bishop(Team.BLACK, new Position(0, 2)));
+        pieces.add(new Bishop(Team.BLACK, new Position(3, 5))); // 0 , 2
         pieces.add(new Bishop(Team.BLACK, new Position(0, 5)));
 
         pieces.add(new Queen(Team.BLACK, new Position(0, 3)));

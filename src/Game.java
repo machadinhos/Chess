@@ -25,7 +25,7 @@ public class Game {
 
         Board.hideValidMoves();
 
-        whitePieces.get(whitePieces.size() - 1).move(5, 6);
+        whitePieces.get(whitePieces.size() - 1).move(5, 5);
 
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
     }

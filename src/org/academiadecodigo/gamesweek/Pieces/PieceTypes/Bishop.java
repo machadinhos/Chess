@@ -229,7 +229,7 @@ public class Bishop extends Piece {
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }

@@ -114,7 +114,7 @@ public class Tower extends Piece {
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -122,7 +122,7 @@ public class Tower extends Piece {
             }
 
             if (isKingSafe) {
-                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                if (row <= 7 && row >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                         validMoves.add(new Position(row, col));
                     }
@@ -153,7 +153,7 @@ public class Tower extends Piece {
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -192,7 +192,7 @@ public class Tower extends Piece {
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -231,7 +231,7 @@ public class Tower extends Piece {
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
