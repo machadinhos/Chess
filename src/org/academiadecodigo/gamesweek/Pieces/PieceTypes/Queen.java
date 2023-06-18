@@ -27,7 +27,7 @@ public class Queen extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (super.getPosition().getCol() - super.getPosition().getRow() != position.getCol()-position.getRow()) {
+        if (super.getPosition().getCol() - super.getPosition().getRow() != position.getCol() - position.getRow()) {
             if (position.getCol() != super.getPosition().getCol() && position.getRow() != super.getPosition().getRow()) {
                 return false;
             }
@@ -39,7 +39,7 @@ public class Queen extends Piece {
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
 
-        if (super.getPosition().getCol() - super.getPosition().getRow() == position.getCol()-position.getRow()) {
+        if (super.getPosition().getCol() - super.getPosition().getRow() == position.getCol() - position.getRow()) {
             while (position.getCol() != col && position.getRow() != row) {
                 if (col < position.getCol()) {
                     col += 1;
