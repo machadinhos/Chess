@@ -101,6 +101,7 @@ public class Queen extends Piece {
 
         List<Piece> enemyTeam;
         List<Piece> sameTeam;
+        List<Piece> enemyTeamCopy;
         List<Piece> sameTeamCopy;
         Position teamKingPosition;
 
@@ -123,6 +124,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -132,13 +134,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -159,6 +164,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -168,13 +174,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -195,6 +204,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -204,13 +214,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -231,6 +244,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -240,13 +254,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -267,6 +284,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             row--;
@@ -275,13 +293,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -289,7 +310,7 @@ public class Queen extends Piece {
             }
 
             if (isKingSafe) {
-                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                if (row <= 7 && row >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                         validMoves.add(new Position(row, col));
                     }
@@ -302,6 +323,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             row++;
@@ -310,13 +332,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -324,7 +349,7 @@ public class Queen extends Piece {
             }
 
             if (isKingSafe) {
-                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                if (row <= 7 && row >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                         validMoves.add(new Position(row, col));
                     }
@@ -337,6 +362,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -345,13 +371,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -359,7 +388,7 @@ public class Queen extends Piece {
             }
 
             if (isKingSafe) {
-                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                if (col <= 7 && col >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                         validMoves.add(new Position(row, col));
                     }
@@ -372,6 +401,7 @@ public class Queen extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -380,13 +410,16 @@ public class Queen extends Piece {
             sameTeamCopy.add(new Queen(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -394,7 +427,7 @@ public class Queen extends Piece {
             }
 
             if (isKingSafe) {
-                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                if (col <= 7 && col >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                         validMoves.add(new Position(row, col));
                     }

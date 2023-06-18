@@ -68,6 +68,7 @@ public class Bishop extends Piece {
         List<Piece> enemyTeam;
         List<Piece> sameTeam;
         List<Piece> sameTeamCopy;
+        List<Piece> enemyTeamCopy;
         Position teamKingPosition;
 
         if (super.getTeam() == Team.WHITE) {
@@ -89,6 +90,7 @@ public class Bishop extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -98,13 +100,16 @@ public class Bishop extends Piece {
             sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -125,6 +130,7 @@ public class Bishop extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -134,13 +140,16 @@ public class Bishop extends Piece {
             sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -161,6 +170,7 @@ public class Bishop extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col--;
@@ -170,13 +180,16 @@ public class Bishop extends Piece {
             sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(teamKingPosition, whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(teamKingPosition, enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
@@ -197,6 +210,7 @@ public class Bishop extends Piece {
         isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             col++;
@@ -206,13 +220,16 @@ public class Bishop extends Piece {
             sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
+                if (enemy.getPosition().equals(new Position(row, col))) {
+                    enemyTeamCopy.remove(enemy);
+                }
                 if (super.getTeam() == Team.WHITE) {
-                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, blackTeam)) {
+                    if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
                 } else {
-                    if (enemy.checkValidMove(new Position(row, col), whiteTeam, sameTeamCopy)) {
+                    if (enemy.checkValidMove(new Position(row, col), enemyTeamCopy, sameTeamCopy)) {
                         isKingSafe = false;
                         break;
                     }
