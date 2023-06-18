@@ -1,6 +1,6 @@
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Tower;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Queen;
 import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
@@ -16,7 +16,7 @@ public class Game {
     private static Piece selectedPiece;
 
     public static void test() throws InterruptedException {
-        whitePieces.add(new Tower(Team.WHITE, new Position(2, 7)));
+        whitePieces.add(new Queen(Team.WHITE, new Position(2, 7)));
         whitePieces.get(whitePieces.size() - 1).initImage();
 
 //        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
