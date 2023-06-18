@@ -51,11 +51,16 @@ public class PieceInitializer {
         pieces.add(new Queen(Team.BLACK, new Position(0, 3)));
         pieces.add(new King(Team.BLACK, new Position(0, 4)));
 
+        return pieces;
+    }
 
-        for (Piece piece : pieces) {
+    public static void initImages(List<Piece> whitePices, List<Piece> blackPieces) {
+        for (Piece piece : whitePices) {
             piece.initImage();
         }
 
-        return pieces;
+        for (Piece piece : blackPieces) {
+            piece.initImage();
+        }
     }
 }

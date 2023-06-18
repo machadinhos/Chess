@@ -30,8 +30,10 @@ public class Game {
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
     }
 
-    public void start() {
-        throw new UnsupportedOperationException();
+    public static void start() {
+        Board.init();
+
+        PieceInitializer.initImages(whitePieces, blackPieces);
     }
 
     public void selectPiece(Piece piece) {
