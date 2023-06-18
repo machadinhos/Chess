@@ -89,7 +89,7 @@ public class Tower extends Piece {
         int col;
         int row;
         boolean isKingSafe;
-        
+
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
         isKingSafe = true;

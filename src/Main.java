@@ -1,9 +1,5 @@
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
-import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Main {

@@ -231,12 +231,12 @@ public class Bishop extends Piece {
         return validMoves;
     }
 
-    public BishopImage getPicture() {
-        return picture;
-    }
-
     @Override
     public String toString() {
         return "Bishop" + super.getTeam() + getPosition().toString();
+    }
+
+    public BishopImage getPicture() {
+        return picture;
     }
 }

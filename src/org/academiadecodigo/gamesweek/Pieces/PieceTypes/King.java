@@ -57,55 +57,6 @@ public class King extends Piece {
                 (super.getPosition().getCol() + 1 == position.getCol() && super.getPosition().getRow() + 1 == position.getRow());
     }
 
-    private boolean checkRook(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (super.getPosition().getRow() == position.getRow()) {
-            if (position.getCol() == super.getPosition().getCol() - 2 || position.getCol() == super.getPosition().getCol() + 2) {
-                List<Piece> sameTeam;
-                int towerNum = 0;
-
-                if (super.getTeam() == Team.WHITE) {
-                    sameTeam = whiteTeam;
-                } else {
-                    sameTeam = blackTeam;
-                }
-
-                for (Piece piece : sameTeam) {
-                    if (piece instanceof Tower tower) {
-                        if (!tower.asMoved()) {
-                            towerNum++;
-                        }
-                    }
-                }
-
-                if (towerNum == 0) {
-                    return false;
-                }
-
-                List<Piece> jointPieces = new ArrayList<>(whiteTeam);
-                jointPieces.addAll(blackTeam);
-
-                for (Piece piece : jointPieces) {
-                    if (piece.getPosition().getRow() == super.getPosition().getRow()) {
-                        if (super.getPosition().getCol() < position.getCol()) {
-                            if (piece.getPosition().getCol() == 6 || piece.getPosition().getCol() == 5) {
-                                return false;
-                            }
-                        } else {
-                            if (piece.getPosition().getCol() == 1 || piece.getPosition().getCol() == 2 || piece.getPosition().getCol() == 3) {
-                                return false;
-                            }
-                        }
-                    }
-                }
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
     @Override
     public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
@@ -408,6 +359,55 @@ public class King extends Piece {
         }
 
         return validMoves;
+    }
+
+    private boolean checkRook(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+        if (super.getPosition().getRow() == position.getRow()) {
+            if (position.getCol() == super.getPosition().getCol() - 2 || position.getCol() == super.getPosition().getCol() + 2) {
+                List<Piece> sameTeam;
+                int towerNum = 0;
+
+                if (super.getTeam() == Team.WHITE) {
+                    sameTeam = whiteTeam;
+                } else {
+                    sameTeam = blackTeam;
+                }
+
+                for (Piece piece : sameTeam) {
+                    if (piece instanceof Tower tower) {
+                        if (!tower.asMoved()) {
+                            towerNum++;
+                        }
+                    }
+                }
+
+                if (towerNum == 0) {
+                    return false;
+                }
+
+                List<Piece> jointPieces = new ArrayList<>(whiteTeam);
+                jointPieces.addAll(blackTeam);
+
+                for (Piece piece : jointPieces) {
+                    if (piece.getPosition().getRow() == super.getPosition().getRow()) {
+                        if (super.getPosition().getCol() < position.getCol()) {
+                            if (piece.getPosition().getCol() == 6 || piece.getPosition().getCol() == 5) {
+                                return false;
+                            }
+                        } else {
+                            if (piece.getPosition().getCol() == 1 || piece.getPosition().getCol() == 2 || piece.getPosition().getCol() == 3) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     public KingImage getPicture() {

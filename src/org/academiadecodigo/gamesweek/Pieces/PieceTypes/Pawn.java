@@ -62,32 +62,6 @@ public class Pawn extends Piece {
         return position.getCol() == super.getPosition().getCol();
     }
 
-    private boolean checkDoubleMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (super.getPosition().getCol() != position.getCol()) {
-            return false;
-        }
-        if (super.getTeam() == Team.WHITE) {
-            if (super.getPosition().getRow() - 2 != position.getRow()) {
-                return false;
-            }
-        } else {
-            if (super.getPosition().getRow() + 2 != position.getRow()) {
-                return false;
-            }
-        }
-
-        List<Piece> jointPieces = new ArrayList<>(whiteTeam);
-        jointPieces.addAll(blackTeam);
-
-        for (Piece piece : jointPieces) {
-            if (piece.getPosition().equals(position)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     @Override
     public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
@@ -360,6 +334,32 @@ public class Pawn extends Piece {
         }
 
         return validMoves;
+    }
+
+    private boolean checkDoubleMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+        if (super.getPosition().getCol() != position.getCol()) {
+            return false;
+        }
+        if (super.getTeam() == Team.WHITE) {
+            if (super.getPosition().getRow() - 2 != position.getRow()) {
+                return false;
+            }
+        } else {
+            if (super.getPosition().getRow() + 2 != position.getRow()) {
+                return false;
+            }
+        }
+
+        List<Piece> jointPieces = new ArrayList<>(whiteTeam);
+        jointPieces.addAll(blackTeam);
+
+        for (Piece piece : jointPieces) {
+            if (piece.getPosition().equals(position)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public PawnImage getPicture() {

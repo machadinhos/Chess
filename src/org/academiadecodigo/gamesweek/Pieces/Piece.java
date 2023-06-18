@@ -17,10 +17,6 @@ public abstract class Piece {
         return this;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
     public Team getTeam() {
         return team;
     }
@@ -36,5 +32,9 @@ public abstract class Piece {
     @Override
     public String toString() {
         return "Piece " + this.team.toString() + getPosition().toString();
+    }
+
+    public Position getPosition() {
+        return position;
     }
 }
