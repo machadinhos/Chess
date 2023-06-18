@@ -62,7 +62,8 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves() {
-        throw new UnsupportedOperationException();
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+        List<Position> validMoves = new ArrayList<>();
+        return validMoves;
     }
 }

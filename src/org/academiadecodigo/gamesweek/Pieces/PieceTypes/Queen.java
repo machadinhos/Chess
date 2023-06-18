@@ -96,7 +96,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves() {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
         throw new UnsupportedOperationException();
     }
 }
