@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tower extends Piece {
-    private final TowerImage picture;
+    private TowerImage picture;
     private boolean asMoved;
 
     public Tower(Team team, Position position) {
         super(team, position);
+    }
+
+    public void initImage () {
         this.picture = new TowerImage(super.getCopy());
     }
 
-    public TowerImage getPicture() {
+
+        public TowerImage getPicture() {
         return picture;
     }
 
@@ -72,7 +76,7 @@ public class Tower extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
     }
 }

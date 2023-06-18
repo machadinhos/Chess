@@ -32,8 +32,10 @@ public class Main {
 
         Board.showValidMoves(valid);
 
-        Thread.sleep(1500);
+        Thread.sleep(1000);
 
         Board.hideValidMoves();
+
+        Game.test();
     }
 }

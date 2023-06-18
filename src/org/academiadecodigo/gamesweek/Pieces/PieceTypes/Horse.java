@@ -8,14 +8,18 @@ import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.HorseImage;
 import java.util.List;
 
 public class Horse extends Piece {
-    private final HorseImage picture;
+    private HorseImage picture;
 
     public Horse(Team team, Position position) {
         super(team, position);
+    }
+
+    public void initImage () {
         this.picture = new HorseImage(super.getCopy());
     }
 
-    public HorseImage getPicture() {
+
+        public HorseImage getPicture() {
         return picture;
     }
 
@@ -50,7 +54,7 @@ public class Horse extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
     }
 }

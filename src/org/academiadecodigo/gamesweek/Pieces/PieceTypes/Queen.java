@@ -9,14 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Queen extends Piece {
-    private final QueenImage picture;
+    private QueenImage picture;
 
     public Queen(Team team, Position position) {
         super(team, position);
+    }
+
+    public void initImage () {
         this.picture = new QueenImage(super.getCopy());
     }
 
-    public QueenImage getPicture() {
+
+        public QueenImage getPicture() {
         return picture;
     }
 
@@ -96,7 +100,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
     }
 }

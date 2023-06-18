@@ -24,6 +24,10 @@ public class PieceInitializer {
         pieces.add(new Queen(Team.WHITE, new Position(7, 3)));
         pieces.add(new King(Team.WHITE, new Position(7, 4)));
 
+        for (Piece piece : pieces) {
+            piece.initImage();
+        }
+
         return pieces;
     }
 
@@ -44,6 +48,10 @@ public class PieceInitializer {
 
         pieces.add(new Queen(Team.BLACK, new Position(0, 3)));
         pieces.add(new King(Team.BLACK, new Position(0, 4)));
+
+        for (Piece piece : pieces) {
+            piece.initImage();
+        }
 
         return pieces;
     }

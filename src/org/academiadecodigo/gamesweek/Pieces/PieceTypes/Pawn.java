@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pawn extends Piece {
-    private final PawnImage picture;
+    private PawnImage picture;
     private boolean asMoved;
 
     public Pawn(Team team, Position position) {
         super(team, position);
+    }
+
+    public void initImage () {
         this.picture = new PawnImage(super.getCopy());
     }
 
-    public PawnImage getPicture() {
+
+        public PawnImage getPicture() {
         return picture;
     }
 
@@ -89,7 +93,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
     }
 }

@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bishop extends Piece {
-    private final BishopImage picture;
+    private BishopImage picture;
 
     public Bishop(Team team, Position position) {
         super(team, position);
+    }
+
+    public void initImage () {
         this.picture = new BishopImage(super.getCopy());
     }
 
@@ -36,14 +39,14 @@ public class Bishop extends Piece {
 
             while (position.getCol() != col && position.getRow() != row) {
                 if (col < position.getCol()) {
-                    col += 1;
+                    col++;
                 } else if (col > position.getCol()) {
-                    col -= 1;
+                    col--;
                 }
                 if (row < position.getRow()) {
-                    row += 1;
+                    row++;
                 } else if (row > position.getRow()) {
-                    row -= 1;
+                    row--;
                 }
 
                 for (Piece piece : jointPieces) {
@@ -62,8 +65,135 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
+
+        List<Piece> enemyTeam;
+        List<Piece> sameTeam;
+        List<Piece> sameTeamCopy;
+        Position teamKingPosition;
+
+        if (super.getTeam() == Team.WHITE) {
+            enemyTeam = blackTeam;
+            sameTeam = whiteTeam;
+            teamKingPosition = whiteKingPosition;
+        } else {
+            enemyTeam = whiteTeam;
+            sameTeam = blackTeam;
+            teamKingPosition = blackKingPosition;
+        }
+        int col;
+        int row;
+        boolean isKingSafe;
+
+        col = super.getPosition().getCol();
+        row = super.getPosition().getRow();
+        isKingSafe = true;
+
+        while (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            col++;
+            row++;
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol();
+        row = super.getPosition().getRow();
+        isKingSafe = true;
+
+        while (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            col--;
+            row--;
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol();
+        row = super.getPosition().getRow();
+        isKingSafe = true;
+
+        while (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            col--;
+            row++;
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol();
+        row = super.getPosition().getRow();
+        isKingSafe = true;
+
+        while (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            col++;
+            row--;
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Bishop(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
         return validMoves;
     }
 }
