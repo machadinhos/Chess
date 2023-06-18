@@ -22,7 +22,7 @@ public class King extends Piece {
     }
 
     @Override
-    public void move(Position newPosition) throws UnsupportedOperationException {
+    public void move(Position newPosition) {
         throw new UnsupportedOperationException();
     }
 
