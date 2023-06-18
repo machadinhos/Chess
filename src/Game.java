@@ -19,11 +19,11 @@ public class Game {
         whitePieces.add(new Tower(Team.WHITE, new Position(2, 7)));
         whitePieces.get(whitePieces.size() - 1).initImage();
 
-        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
-
-        Thread.sleep(1000);
-
-        Board.hideValidMoves();
+//        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
+//
+//        Thread.sleep(1000);
+//
+//        Board.hideValidMoves();
 
         whitePieces.get(whitePieces.size() - 1).move(5, 5);
 

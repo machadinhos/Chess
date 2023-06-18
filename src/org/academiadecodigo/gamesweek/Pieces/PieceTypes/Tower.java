@@ -93,9 +93,10 @@ public class Tower extends Piece {
 
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-        isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            isKingSafe = true;
+
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -108,6 +109,9 @@ public class Tower extends Piece {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
+            }
+
+            for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
@@ -132,9 +136,10 @@ public class Tower extends Piece {
 
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-        isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            isKingSafe = true;
+
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -147,6 +152,9 @@ public class Tower extends Piece {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
+            }
+
+            for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
@@ -171,9 +179,10 @@ public class Tower extends Piece {
 
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-        isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            isKingSafe = true;
+
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -186,6 +195,9 @@ public class Tower extends Piece {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
+            }
+
+            for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
@@ -210,9 +222,10 @@ public class Tower extends Piece {
 
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-        isKingSafe = true;
 
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
+            isKingSafe = true;
+
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
 
@@ -225,6 +238,9 @@ public class Tower extends Piece {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
+            }
+
+            for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
                         isKingSafe = false;
