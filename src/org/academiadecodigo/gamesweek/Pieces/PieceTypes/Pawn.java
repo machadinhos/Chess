@@ -119,7 +119,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -150,7 +150,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -181,7 +181,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -212,7 +212,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -243,7 +243,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -274,7 +274,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -305,7 +305,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {
@@ -336,7 +336,7 @@ public class Pawn extends Piece {
             sameTeamCopy = new ArrayList<>(sameTeam);
 
             sameTeamCopy.remove(super.getCopy());
-            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+            sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
 
             for (Piece enemy : enemyTeam) {
                 if (super.getTeam() == Team.WHITE) {

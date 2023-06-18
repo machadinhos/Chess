@@ -1,9 +1,6 @@
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Bishop;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Horse;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.King;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Pawn;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.*;
 import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
@@ -20,7 +17,7 @@ public class Game {
     private static Piece selectedPiece;
 
     public static void test() throws InterruptedException {
-        whitePieces.add(new Pawn(Team.WHITE, new Position(2, 6)));
+        whitePieces.add(new Pawn(Team.WHITE, new Position(2, 7)));
         whitePieces.get(whitePieces.size() - 1).initImage();
 
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
@@ -29,7 +26,7 @@ public class Game {
 
         Board.hideValidMoves();
 
-        whitePieces.get(whitePieces.size() - 1).move(4, 5);
+        whitePieces.get(whitePieces.size() - 1).move(4, 7);
 
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
     }

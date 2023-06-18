@@ -112,8 +112,10 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
-                    validMoves.add(new Position(row, col));
+                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                    if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                        validMoves.add(new Position(row, col));
+                    }
                 }
             }
         }
@@ -146,8 +148,10 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
-                    validMoves.add(new Position(row, col));
+                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                    if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                        validMoves.add(new Position(row, col));
+                    }
                 }
             }
         }
@@ -180,8 +184,10 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
-                    validMoves.add(new Position(row, col));
+                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                    if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                        validMoves.add(new Position(row, col));
+                    }
                 }
             }
         }
@@ -214,8 +220,10 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
-                    validMoves.add(new Position(row, col));
+                if (row <= 7 && col <= 7 && row >= 0 && col >= 0) {
+                    if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                        validMoves.add(new Position(row, col));
+                    }
                 }
             }
         }
