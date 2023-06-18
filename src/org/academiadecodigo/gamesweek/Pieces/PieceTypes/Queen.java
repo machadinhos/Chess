@@ -38,7 +38,7 @@ public class Queen extends Piece {
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
 
-        if (Math.abs(super.getPosition().getCol() - super.getPosition().getRow()) == Math.abs(position.getCol() - position.getRow())) {
+        if (Math.abs(super.getPosition().getCol() - position.getCol()) == Math.abs(super.getPosition().getRow() - position.getRow())) {
             while (position.getCol() != col && position.getRow() != row) {
                 if (col < position.getCol()) {
                     col += 1;

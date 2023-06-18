@@ -50,8 +50,8 @@ public class Pawn extends Piece {
         jointPieces.addAll(blackTeam);
 
         for (Piece piece : jointPieces) {
-            if (piece.getPosition().getRow() == position.getRow()) {
-                if (piece.getPosition().getCol() == position.getCol()) {
+            if (piece.getPosition().equals(position)) {
+                if (piece.getPosition().getCol() == super.getPosition().getCol()) {
                     return false;
                 } else if (piece.getPosition().getCol() == super.getPosition().getCol() + 1 || piece.getPosition().getCol() == super.getPosition().getCol() - 1) {
                     return piece.getTeam() != super.getTeam();

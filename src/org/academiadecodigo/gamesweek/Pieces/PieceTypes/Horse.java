@@ -5,6 +5,7 @@ import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.HorseImage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Horse extends Piece {
@@ -50,7 +51,220 @@ public class Horse extends Piece {
 
     @Override
     public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
-        throw new UnsupportedOperationException();
+        List<Position> validMoves = new ArrayList<>();
+
+        List<Piece> enemyTeam;
+        List<Piece> sameTeam;
+        List<Piece> sameTeamCopy;
+        Position teamKingPosition;
+
+        if (super.getTeam() == Team.WHITE) {
+            enemyTeam = blackTeam;
+            sameTeam = whiteTeam;
+            teamKingPosition = whiteKingPosition;
+        } else {
+            enemyTeam = whiteTeam;
+            sameTeam = blackTeam;
+            teamKingPosition = blackKingPosition;
+        }
+
+        int col;
+        int row;
+        boolean isKingSafe;
+
+        col = super.getPosition().getCol() + 1;
+        row = super.getPosition().getRow() + 2;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() - 1;
+        row = super.getPosition().getRow() + 2;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() + 1;
+        row = super.getPosition().getRow() - 2;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() - 1;
+        row = super.getPosition().getRow() - 2;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() + 2;
+        row = super.getPosition().getRow() + 1;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() - 2;
+        row = super.getPosition().getRow() + 1;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() + 2;
+        row = super.getPosition().getRow() - 1;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        col = super.getPosition().getCol() - 2;
+        row = super.getPosition().getRow() - 1;
+        isKingSafe = true;
+
+        if (col < 7 && row < 7 && col > 0 && row > 0) {
+            sameTeamCopy = new ArrayList<>(sameTeam);
+
+            sameTeamCopy.remove(super.getCopy());
+            sameTeamCopy.add(new Horse(super.getTeam(), new Position(row, col)));
+
+            for (Piece enemy : enemyTeam) {
+                if (enemy.checkValidMove(teamKingPosition, whiteTeam, blackTeam)) {
+                    isKingSafe = false;
+                    break;
+                }
+            }
+
+            if (isKingSafe) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
+                    validMoves.add(new Position(row, col));
+                }
+            }
+        }
+
+        return validMoves;
     }
 
     public HorseImage getPicture() {

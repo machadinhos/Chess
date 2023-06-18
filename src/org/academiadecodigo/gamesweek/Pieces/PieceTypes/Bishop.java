@@ -78,6 +78,7 @@ public class Bishop extends Piece {
             sameTeam = blackTeam;
             teamKingPosition = blackKingPosition;
         }
+
         int col;
         int row;
         boolean isKingSafe;
@@ -195,5 +196,10 @@ public class Bishop extends Piece {
 
     public BishopImage getPicture() {
         return picture;
+    }
+
+    @Override
+    public String toString() {
+        return "Bishop" + super.getTeam() + getPosition().toString();
     }
 }

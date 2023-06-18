@@ -34,4 +34,9 @@ public abstract class Piece {
     public abstract boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam);
 
     public abstract List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition);
+
+    @Override
+    public String toString() {
+        return "Piece " + this.team.toString() + getPosition().toString();
+    }
 }
