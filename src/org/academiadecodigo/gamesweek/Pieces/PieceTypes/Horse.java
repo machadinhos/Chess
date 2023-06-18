@@ -14,13 +14,8 @@ public class Horse extends Piece {
         super(team, position);
     }
 
-    public void initImage () {
+    public void initImage() {
         this.picture = new HorseImage(super.getCopy());
-    }
-
-
-        public HorseImage getPicture() {
-        return picture;
     }
 
     @Override
@@ -54,7 +49,11 @@ public class Horse extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
+    }
+
+    public HorseImage getPicture() {
+        return picture;
     }
 }

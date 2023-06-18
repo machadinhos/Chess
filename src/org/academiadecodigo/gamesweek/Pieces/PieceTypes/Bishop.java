@@ -15,12 +15,8 @@ public class Bishop extends Piece {
         super(team, position);
     }
 
-    public void initImage () {
+    public void initImage() {
         this.picture = new BishopImage(super.getCopy());
-    }
-
-    public BishopImage getPicture() {
-        return picture;
     }
 
     @Override
@@ -30,7 +26,7 @@ public class Bishop extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (super.getPosition().getCol() - super.getPosition().getRow() == position.getCol() - position.getRow()) {
+        if (Math.abs(super.getPosition().getCol() - position.getCol()) == Math.abs(super.getPosition().getRow() - position.getRow())) {
             int col = super.getPosition().getCol();
             int row = super.getPosition().getRow();
 
@@ -65,7 +61,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
 
         List<Piece> enemyTeam;
@@ -107,7 +103,7 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
@@ -134,7 +130,7 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
@@ -161,7 +157,7 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
@@ -188,12 +184,16 @@ public class Bishop extends Piece {
             }
 
             if (isKingSafe) {
-                if (this.checkValidMove(new Position(row, col),whiteTeam,blackTeam)) {
+                if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
 
         return validMoves;
+    }
+
+    public BishopImage getPicture() {
+        return picture;
     }
 }

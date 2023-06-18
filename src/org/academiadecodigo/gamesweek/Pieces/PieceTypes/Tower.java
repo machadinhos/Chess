@@ -16,17 +16,8 @@ public class Tower extends Piece {
         super(team, position);
     }
 
-    public void initImage () {
+    public void initImage() {
         this.picture = new TowerImage(super.getCopy());
-    }
-
-
-        public TowerImage getPicture() {
-        return picture;
-    }
-
-    public boolean asMoved() {
-        return asMoved;
     }
 
     @Override
@@ -76,7 +67,15 @@ public class Tower extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
+    }
+
+    public TowerImage getPicture() {
+        return picture;
+    }
+
+    public boolean asMoved() {
+        return asMoved;
     }
 }

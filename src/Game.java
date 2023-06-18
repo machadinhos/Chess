@@ -15,10 +15,10 @@ public class Game {
     private static final Team teamPlaying = Team.WHITE;
     private static Piece selectedPiece;
 
-    public static void test () {
+    public static void test() {
         blackPieces.add(new Bishop(Team.BLACK, new Position(3, 4)));
         blackPieces.get(blackPieces.size() - 1).initImage();
-        Board.showValidMoves(blackPieces.get(blackPieces.size() - 1).getValidMoves(whitePieces,blackPieces,whiteKingPosition,blackKingPosition));
+        Board.showValidMoves(blackPieces.get(blackPieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
     }
 
     public void start() {

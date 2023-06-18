@@ -16,13 +16,8 @@ public class King extends Piece {
         super(team, position);
     }
 
-    public void initImage () {
+    public void initImage() {
         this.picture = new KingImage(super.getCopy());
-    }
-
-
-        public KingImage getPicture() {
-        return picture;
     }
 
     @Override
@@ -111,7 +106,11 @@ public class King extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
+    }
+
+    public KingImage getPicture() {
+        return picture;
     }
 }

@@ -15,13 +15,8 @@ public class Queen extends Piece {
         super(team, position);
     }
 
-    public void initImage () {
+    public void initImage() {
         this.picture = new QueenImage(super.getCopy());
-    }
-
-
-        public QueenImage getPicture() {
-        return picture;
     }
 
     @Override
@@ -31,7 +26,7 @@ public class Queen extends Piece {
 
     @Override
     public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
-        if (super.getPosition().getCol() - super.getPosition().getRow() != position.getCol() - position.getRow()) {
+        if (Math.abs(super.getPosition().getCol() - position.getCol()) != Math.abs(super.getPosition().getRow() - position.getRow())) {
             if (position.getCol() != super.getPosition().getCol() && position.getRow() != super.getPosition().getRow()) {
                 return false;
             }
@@ -43,7 +38,7 @@ public class Queen extends Piece {
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
 
-        if (super.getPosition().getCol() - super.getPosition().getRow() == position.getCol() - position.getRow()) {
+        if (Math.abs(super.getPosition().getCol() - super.getPosition().getRow()) == Math.abs(position.getCol() - position.getRow())) {
             while (position.getCol() != col && position.getRow() != row) {
                 if (col < position.getCol()) {
                     col += 1;
@@ -100,7 +95,11 @@ public class Queen extends Piece {
     }
 
     @Override
-    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         throw new UnsupportedOperationException();
+    }
+
+    public QueenImage getPicture() {
+        return picture;
     }
 }
