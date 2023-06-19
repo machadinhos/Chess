@@ -14,8 +14,8 @@ public class Game {
     private static final Team teamPlaying = Team.WHITE;
     private static final Position blackKingPosition = blackPieces.get(blackPieces.size() - 1).getPosition();
     private static Piece selectedPiece;
-
-    public static void test() throws InterruptedException {
+    
+    public static void test () throws InterruptedException {
         whitePieces.add(new Queen(Team.WHITE, new Position(2, 7)));
         whitePieces.get(whitePieces.size() - 1).initImage();
 
@@ -24,19 +24,19 @@ public class Game {
 //        Thread.sleep(1000);
 //
 //        Board.hideValidMoves();
-
+        
         whitePieces.get(whitePieces.size() - 1).move(5, 5);
-
-        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
+        
+        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), blackPieces);
     }
-
-    public static void start() {
+    
+    public static void start () {
         Board.init();
-
+        
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
-
-    public void selectPiece(Piece piece) {
+    
+    public void selectPiece (Piece piece) {
         if (piece.getTeam() == teamPlaying) {
             selectedPiece = piece;
         }

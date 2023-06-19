@@ -7,20 +7,20 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class BishopImage extends PieceImage {
     private final Picture picture;
-
-    public BishopImage(Piece piece) {
+    
+    public BishopImage (Piece piece) {
         super(piece.getPosition());
-
+        
         if (piece.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wB.png");
         } else {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bB.png");
         }
-
+        
         this.picture.draw();
     }
-
-    public void updateImagePosition() {
+    
+    public void updateImagePosition () {
         super.updateImagePosition(this.picture);
     }
 }

@@ -11,29 +11,29 @@ import java.util.List;
 public class Pawn extends Piece {
     private PawnImage picture;
     private boolean asMoved;
-
-    public Pawn(Team team, Position position) {
+    
+    public Pawn (Team team, Position position) {
         super(team, position);
     }
-
-    public void initImage() {
+    
+    public void initImage () {
         this.picture = new PawnImage(super.getCopy());
     }
-
+    
     @Override
-    public void move(int row, int col) {
+    public void move (int row, int col) {
         super.move(row, col);
         this.picture.updateImagePosition();
     }
-
+    
     @Override
-    public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public boolean checkValidMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (!this.asMoved) {
             if (this.checkDoubleMove(position, whiteTeam, blackTeam)) {
                 return true;
             }
         }
-
+        
         if (super.getTeam() == Team.WHITE) {
             if (position.getRow() != super.getPosition().getRow() - 1) {
                 return false;
@@ -46,10 +46,10 @@ public class Pawn extends Piece {
         if (position.getCol() != super.getPosition().getCol() + 1 && position.getCol() != super.getPosition().getCol() - 1 && position.getCol() != super.getPosition().getCol()) {
             return false;
         }
-
+        
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
-
+        
         for (Piece piece : jointPieces) {
             if (piece.getPosition().equals(position)) {
                 if (piece.getPosition().getCol() == super.getPosition().getCol()) {
@@ -61,17 +61,17 @@ public class Pawn extends Piece {
         }
         return position.getCol() == super.getPosition().getCol();
     }
-
+    
     @Override
-    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
-
+        
         List<Piece> enemyTeam;
         List<Piece> sameTeam;
         List<Piece> enemyTeamCopy;
         List<Piece> sameTeamCopy;
         Position teamKingPosition;
-
+        
         if (super.getTeam() == Team.WHITE) {
             enemyTeam = blackTeam;
             sameTeam = whiteTeam;
@@ -81,28 +81,28 @@ public class Pawn extends Piece {
             sameTeam = blackTeam;
             teamKingPosition = blackKingPosition;
         }
-
+        
         int col;
         int row;
         boolean isKingSafe;
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow() + 2;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -116,31 +116,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -154,31 +154,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol() + 1;
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -192,31 +192,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol() - 1;
         row = super.getPosition().getRow() + 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -230,31 +230,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow() - 2;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -268,31 +268,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -306,31 +306,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol() + 1;
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -344,31 +344,31 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         col = super.getPosition().getCol() - 1;
         row = super.getPosition().getRow() - 1;
         isKingSafe = true;
-
+        
         if (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Pawn(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -382,18 +382,18 @@ public class Pawn extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
                     validMoves.add(new Position(row, col));
                 }
             }
         }
-
+        
         return validMoves;
     }
-
-    private boolean checkDoubleMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+    
+    private boolean checkDoubleMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (super.getPosition().getCol() != position.getCol()) {
             return false;
         }
@@ -406,20 +406,20 @@ public class Pawn extends Piece {
                 return false;
             }
         }
-
+        
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
-
+        
         for (Piece piece : jointPieces) {
             if (piece.getPosition().equals(position)) {
                 return false;
             }
         }
-
+        
         return true;
     }
-
-    public PawnImage getPicture() {
+    
+    public PawnImage getPicture () {
         return picture;
     }
 }
