@@ -1,13 +1,12 @@
+import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
 import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 
-import javax.management.monitor.GaugeMonitor;
-
 
 public class Handler implements MouseHandler {
-    private Mouse mouse;
+    private final Mouse mouse;
 
     public Handler(){
         mouse = new Mouse(this);
@@ -17,9 +16,17 @@ public class Handler implements MouseHandler {
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
 //        System.out.println(Board.pixelToPosition( (int) mouseEvent.getX(), (int) mouseEvent.getY()));
+        Position positionClicked = Board.pixelToPosition((int) mouseEvent.getX(), (int) mouseEvent.getY());
 
-        if (Board.getValidMoves() == null) {
-            Game.selectPiece(Board.pixelToPosition((int) mouseEvent.getX(), (int) mouseEvent.getY()));
+        if (Board.getValidMovesEllipse() == null) {
+            Game.selectPiece(positionClicked);
+        } else {
+            for (Position position : Board.getValidMovesPositions()) {
+                if (position.equals(positionClicked)) {
+                    Board.hideValidMoves();
+                    Game.getSelectedPiece().move(position.getRow(), position.getCol());
+                }
+            }
         }
     }
 

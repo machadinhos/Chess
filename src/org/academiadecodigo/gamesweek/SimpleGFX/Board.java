@@ -16,7 +16,8 @@ public class Board {
     private static final int VALIDMOVESRADIUS = 45;
     private static final int VALIDMOVEENEMYSRADIUS = 20;
     private static final Rectangle[][] boardSquares = new Rectangle[8][8];
-    private static List<Ellipse> validMoves;
+    private static List<Ellipse> validMovesEllipse;
+    private static List<Position> validMovesPositions;
     
     public static void init () {
         int xPosition = PADDING;
@@ -150,12 +151,18 @@ public class Board {
         letter8.draw();
     }
 
-    public static List<Ellipse> getValidMoves() {
-        return validMoves;
+    public static List<Ellipse> getValidMovesEllipse() {
+        return validMovesEllipse;
+    }
+
+    public static List<Position> getValidMovesPositions() {
+        return validMovesPositions;
     }
 
     public static void showValidMoves (List<Position> validMoves, List<Piece> enemyTeam) {
-        Board.validMoves = new ArrayList<>();
+        Board.validMovesEllipse = new ArrayList<>();
+        Board.validMovesPositions = new ArrayList<>();
+
         Ellipse circle;
         
         for (Position move : validMoves) {
@@ -177,15 +184,17 @@ public class Board {
                 circle.fill();
             }
             
-            Board.validMoves.add(circle);
+            Board.validMovesEllipse.add(circle);
+            Board.validMovesPositions.add(move);
         }
     }
     
     public static void hideValidMoves () {
-        for (Ellipse move : validMoves) {
+        for (Ellipse move : validMovesEllipse) {
             move.delete();
         }
-        validMoves = null;
+        validMovesEllipse = null;
+        validMovesPositions = null;
     }
     
     public static int[] positionToPixel (Position position) {

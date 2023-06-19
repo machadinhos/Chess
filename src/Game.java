@@ -15,7 +15,11 @@ public class Game {
     private static final Team teamPlaying = Team.WHITE;
     private static final Position blackKingPosition = blackPieces.get(blackPieces.size() - 1).getPosition();
     private static Piece selectedPiece;
-    
+
+    public static Piece getSelectedPiece() {
+        return selectedPiece;
+    }
+
     public static void test () throws InterruptedException {
         whitePieces.add(new Horse(Team.WHITE, new Position(5, 4)));
         whitePieces.get(whitePieces.size() - 1).initImage();
@@ -30,9 +34,11 @@ public class Game {
 
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
+
+
     
     public static void selectPiece (Position position) {
-        if (Board.getValidMoves() != null) {
+        if (Board.getValidMovesEllipse() != null) {
             Board.hideValidMoves();
         }
 
@@ -50,6 +56,7 @@ public class Game {
         for (Piece piece : sameTeam) {
             if (piece.getPosition().equals(position)) {
                 Board.showValidMoves(piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), enemyTeam);
+                Game.selectedPiece = piece;
             }
         }
     }
