@@ -164,7 +164,7 @@ public class Board {
             }
             
             if (hasEnemy) {
-                circle = new Ellipse(positionToPixel(move)[0] + (double) VALIDMOVEENEMYSRADIUS + 15, positionToPixel(move)[1] + (double) VALIDMOVEENEMYSRADIUS + 15, VALIDMOVEENEMYSRADIUS, VALIDMOVEENEMYSRADIUS);
+                circle = new Ellipse(positionToPixel(move)[0] + (double) SQUARESIZE / 2 - (double) VALIDMOVEENEMYSRADIUS / 2, positionToPixel(move)[1] + (double) SQUARESIZE / 2 - (double) VALIDMOVEENEMYSRADIUS / 2, VALIDMOVEENEMYSRADIUS, VALIDMOVEENEMYSRADIUS);
                 circle.setColor(Color.RED);
                 circle.fill();
             } else {
@@ -177,14 +177,14 @@ public class Board {
         }
     }
     
-    public static int[] positionToPixel (Position position) {
-        return new int[]{position.getCol() * Board.SQUARESIZE + Board.PADDING, position.getRow() * Board.SQUARESIZE + Board.PADDING};
-    }
-    
     public static void hideValidMoves () {
         for (Ellipse move : validMoves) {
             move.delete();
         }
         validMoves = null;
+    }
+    
+    public static int[] positionToPixel (Position position) {
+        return new int[]{position.getCol() * Board.SQUARESIZE + Board.PADDING, position.getRow() * Board.SQUARESIZE + Board.PADDING};
     }
 }
