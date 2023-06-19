@@ -1,13 +1,11 @@
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
 import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Horse;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Pawn;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Queen;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Tower;
 import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -19,29 +17,40 @@ public class Game {
     private static Piece selectedPiece;
     
     public static void test () throws InterruptedException {
-        whitePieces.add(new Horse(Team.WHITE, new Position(2, 7)));
+        whitePieces.add(new Horse(Team.WHITE, new Position(5, 4)));
         whitePieces.get(whitePieces.size() - 1).initImage();
 
-//        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition));
-//
-//        Thread.sleep(1000);
-//
-//        Board.hideValidMoves();
-        
-        whitePieces.get(whitePieces.size() - 1).move(5, 4);
-        
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), blackPieces);
     }
     
     public static void start () {
         Board.init();
-        
+
+        new Handler();
+
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
     
-    public void selectPiece (Piece piece) {
-        if (piece.getTeam() == teamPlaying) {
-            selectedPiece = piece;
+    public static void selectPiece (Position position) {
+        if (Board.getValidMoves() != null) {
+            Board.hideValidMoves();
+        }
+
+        List<Piece> sameTeam = new ArrayList<>();
+        List<Piece> enemyTeam = new ArrayList<>();
+
+        if (Game.teamPlaying == Team.WHITE) {
+            sameTeam = whitePieces;
+            enemyTeam = blackPieces;
+        } else {
+            sameTeam = blackPieces;
+            enemyTeam = whitePieces;
+        }
+
+        for (Piece piece : sameTeam) {
+            if (piece.getPosition().equals(position)) {
+                Board.showValidMoves(piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), enemyTeam);
+            }
         }
     }
 }

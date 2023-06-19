@@ -149,7 +149,11 @@ public class Board {
         letter8.grow(4, 8);
         letter8.draw();
     }
-    
+
+    public static List<Ellipse> getValidMoves() {
+        return validMoves;
+    }
+
     public static void showValidMoves (List<Position> validMoves, List<Piece> enemyTeam) {
         Board.validMoves = new ArrayList<>();
         Ellipse circle;
@@ -186,5 +190,9 @@ public class Board {
     
     public static int[] positionToPixel (Position position) {
         return new int[]{position.getCol() * Board.SQUARESIZE + Board.PADDING, position.getRow() * Board.SQUARESIZE + Board.PADDING};
+    }
+
+    public static Position pixelToPosition (int x , int y) {
+        return new Position((y - Board.SQUARESIZE / 2) / Board.SQUARESIZE, (x - Board.SQUARESIZE / 2) / Board.SQUARESIZE);
     }
 }

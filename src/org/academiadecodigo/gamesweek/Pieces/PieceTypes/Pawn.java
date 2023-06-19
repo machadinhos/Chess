@@ -24,6 +24,7 @@ public class Pawn extends Piece {
     public void move (int row, int col) {
         super.move(row, col);
         this.picture.updateImagePosition();
+        this.asMoved = true;
     }
     
     @Override
