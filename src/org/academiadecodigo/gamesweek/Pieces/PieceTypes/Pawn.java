@@ -19,6 +19,11 @@ public class Pawn extends Piece {
     public void initImage () {
         this.picture = new PawnImage(super.getCopy());
     }
+
+    @Override
+    public void die() {
+        this.picture.delete();
+    }
     
     @Override
     public void move (int row, int col) {

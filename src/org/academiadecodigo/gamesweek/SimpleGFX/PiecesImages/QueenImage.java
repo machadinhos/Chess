@@ -19,6 +19,11 @@ public class QueenImage extends PieceImage {
         
         this.picture.draw();
     }
+
+    @Override
+    public void delete() {
+        this.picture.delete();
+    }
     
     public void updateImagePosition () {
         super.updateImagePosition(this.picture);

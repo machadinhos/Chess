@@ -24,7 +24,12 @@ public class Bishop extends Piece {
         super.move(row, col);
         this.picture.updateImagePosition();
     }
-    
+
+    @Override
+    public void die() {
+        this.picture.delete();
+    }
+
     @Override
     public boolean checkValidMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (Math.abs(super.getPosition().getCol() - position.getCol()) == Math.abs(super.getPosition().getRow() - position.getRow())) {

@@ -19,6 +19,11 @@ public class TowerImage extends PieceImage {
         
         this.picture.draw();
     }
+
+    @Override
+    public void delete() {
+        this.picture.delete();
+    }
     
     public void updateImagePosition () {
         super.updateImagePosition(this.picture);

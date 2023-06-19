@@ -18,6 +18,11 @@ public class Queen extends Piece {
     public void initImage () {
         this.picture = new QueenImage(super.getCopy());
     }
+
+    @Override
+    public void die() {
+        this.picture.delete();
+    }
     
     @Override
     public void move (int row, int col) {

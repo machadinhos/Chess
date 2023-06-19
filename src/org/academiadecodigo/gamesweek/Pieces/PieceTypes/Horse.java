@@ -18,6 +18,11 @@ public class Horse extends Piece {
     public void initImage () {
         this.picture = new HorseImage(super.getCopy());
     }
+
+    @Override
+    public void die() {
+        this.picture.delete();
+    }
     
     @Override
     public void move (int row, int col) {

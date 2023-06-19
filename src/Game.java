@@ -12,7 +12,7 @@ public class Game {
     private static final List<Piece> whitePieces = PieceInitializer.initWhitePieces();
     private static final List<Piece> blackPieces = PieceInitializer.initBlackPieces();
     private static final Position whiteKingPosition = whitePieces.get(whitePieces.size() - 1).getPosition();
-    private static final Team teamPlaying = Team.WHITE;
+    private static Team teamPlaying = Team.WHITE;
     private static final Position blackKingPosition = blackPieces.get(blackPieces.size() - 1).getPosition();
     private static Piece selectedPiece;
 
@@ -26,7 +26,11 @@ public class Game {
 
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), blackPieces);
     }
-    
+
+    public static Team getTeamPlaying() {
+        return teamPlaying;
+    }
+
     public static void start () {
         Board.init();
 
@@ -35,7 +39,46 @@ public class Game {
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
 
+    public static void moveSelectedPiece (Position position) {
+        Board.hideValidMoves();
 
+        selectedPiece.move(position.getRow(), position.getCol());
+
+        List<Piece> enemyTeam;
+
+        if (teamPlaying == Team.WHITE) {
+            enemyTeam = blackPieces;
+            teamPlaying = Team.BLACK;
+        } else {
+            enemyTeam = whitePieces;
+            teamPlaying = Team.WHITE;
+        }
+
+        for (Piece piece : enemyTeam) {
+            if (position.equals(piece.getPosition())) {
+                enemyTeam.remove(piece);
+                piece.die();
+                break;
+            }
+        }
+    }
+
+    public static boolean checkHasValidMoves() {
+        List<Piece> teaamPlayingPieces;
+
+        if (teamPlaying == Team.WHITE) {
+            teaamPlayingPieces = whitePieces;
+        } else {
+            teaamPlayingPieces = blackPieces;
+        }
+
+        for (Piece piece : teaamPlayingPieces) {
+            if (piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition).size() > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
     
     public static void selectPiece (Position position) {
         if (Board.getValidMovesEllipse() != null) {

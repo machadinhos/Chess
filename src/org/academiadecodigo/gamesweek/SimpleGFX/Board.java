@@ -13,6 +13,7 @@ import java.util.List;
 public class Board {
     public static final int SQUARESIZE = 90;
     public static final int PADDING = 10;
+    public static final int BOARDSIZE = SQUARESIZE * 8;
     private static final int VALIDMOVESRADIUS = 45;
     private static final int VALIDMOVEENEMYSRADIUS = 20;
     private static final Rectangle[][] boardSquares = new Rectangle[8][8];
@@ -190,11 +191,13 @@ public class Board {
     }
     
     public static void hideValidMoves () {
-        for (Ellipse move : validMovesEllipse) {
-            move.delete();
+        if (validMovesEllipse != null) {
+            for (Ellipse move : validMovesEllipse) {
+                move.delete();
+            }
+            validMovesEllipse = null;
+            validMovesPositions = null;
         }
-        validMovesEllipse = null;
-        validMovesPositions = null;
     }
     
     public static int[] positionToPixel (Position position) {

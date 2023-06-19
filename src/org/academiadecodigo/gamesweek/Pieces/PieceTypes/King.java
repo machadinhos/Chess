@@ -19,6 +19,11 @@ public class King extends Piece {
     public void initImage () {
         this.picture = new KingImage(super.getCopy());
     }
+
+    @Override
+    public void die() {
+        this.picture.delete();
+    }
     
     @Override
     public void move (int row, int col) {
