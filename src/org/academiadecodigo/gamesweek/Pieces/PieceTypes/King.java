@@ -401,8 +401,13 @@ public class King extends Piece {
     private boolean checkRook(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (super.getPosition().getRow() == position.getRow()) {
             if (position.getCol() == super.getPosition().getCol() - 2 || position.getCol() == super.getPosition().getCol() + 2) {
+                int towerCol;
+                if (position.getCol() == super.getPosition().getCol() - 2) {
+                    towerCol = 0;
+                } else {
+                    towerCol = 7;
+                }
                 List<Piece> sameTeam;
-                int towerNum = 0;
 
                 if (super.getTeam() == Team.WHITE) {
                     sameTeam = whiteTeam;
@@ -411,15 +416,12 @@ public class King extends Piece {
                 }
 
                 for (Piece piece : sameTeam) {
-                    if (piece instanceof Tower tower) {
-                        if (!tower.asMoved()) {
-                            towerNum++;
+                    if (piece instanceof Tower tower && piece.getPosition().getCol() == towerCol) {
+                        if (tower.asMoved()) {
+                            return false;
                         }
+                        break;
                     }
-                }
-
-                if (towerNum == 0) {
-                    return false;
                 }
 
                 List<Piece> jointPieces = new ArrayList<>(whiteTeam);
