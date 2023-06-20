@@ -151,19 +151,19 @@ public class Board {
         letter8.grow(4, 8);
         letter8.draw();
     }
-
-    public static List<Ellipse> getValidMovesEllipse() {
+    
+    public static List<Ellipse> getValidMovesEllipse () {
         return validMovesEllipse;
     }
-
-    public static List<Position> getValidMovesPositions() {
+    
+    public static List<Position> getValidMovesPositions () {
         return validMovesPositions;
     }
-
+    
     public static void showValidMoves (List<Position> validMoves, List<Piece> enemyTeam) {
         Board.validMovesEllipse = new ArrayList<>();
         Board.validMovesPositions = new ArrayList<>();
-
+        
         Ellipse circle;
         
         for (Position move : validMoves) {
@@ -203,8 +203,8 @@ public class Board {
     public static int[] positionToPixel (Position position) {
         return new int[]{position.getCol() * Board.SQUARESIZE + Board.PADDING, position.getRow() * Board.SQUARESIZE + Board.PADDING};
     }
-
-    public static Position pixelToPosition (int x , int y) {
+    
+    public static Position pixelToPosition (int x, int y) {
         return new Position((y - 40) / Board.SQUARESIZE, (x - 20) / Board.SQUARESIZE);
     }
 }

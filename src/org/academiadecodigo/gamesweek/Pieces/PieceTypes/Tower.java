@@ -19,9 +19,9 @@ public class Tower extends Piece {
     public void initImage () {
         this.picture = new TowerImage(super.getCopy());
     }
-
+    
     @Override
-    public void die() {
+    public void die () {
         this.picture.delete();
     }
     

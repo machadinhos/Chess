@@ -12,40 +12,40 @@ public class Game {
     private static final List<Piece> whitePieces = PieceInitializer.initWhitePieces();
     private static final List<Piece> blackPieces = PieceInitializer.initBlackPieces();
     private static final Position whiteKingPosition = whitePieces.get(whitePieces.size() - 1).getPosition();
-    private static Team teamPlaying = Team.WHITE;
     private static final Position blackKingPosition = blackPieces.get(blackPieces.size() - 1).getPosition();
+    private static Team teamPlaying = Team.WHITE;
     private static Piece selectedPiece;
-
-    public static Piece getSelectedPiece() {
+    
+    public static Piece getSelectedPiece () {
         return selectedPiece;
     }
-
+    
     public static void test () throws InterruptedException {
         whitePieces.add(new Horse(Team.WHITE, new Position(5, 4)));
         whitePieces.get(whitePieces.size() - 1).initImage();
-
+        
         Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), blackPieces);
     }
-
-    public static Team getTeamPlaying() {
+    
+    public static Team getTeamPlaying () {
         return teamPlaying;
     }
-
+    
     public static void start () {
         Board.init();
-
+        
         new Handler();
-
+        
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
-
+    
     public static void moveSelectedPiece (Position position) {
         Board.hideValidMoves();
-
+        
         selectedPiece.move(position.getRow(), position.getCol());
-
+        
         List<Piece> enemyTeam;
-
+        
         if (teamPlaying == Team.WHITE) {
             enemyTeam = blackPieces;
             teamPlaying = Team.BLACK;
@@ -53,7 +53,7 @@ public class Game {
             enemyTeam = whitePieces;
             teamPlaying = Team.WHITE;
         }
-
+        
         for (Piece piece : enemyTeam) {
             if (position.equals(piece.getPosition())) {
                 enemyTeam.remove(piece);
@@ -62,16 +62,16 @@ public class Game {
             }
         }
     }
-
-    public static boolean checkHasValidMoves() {
+    
+    public static boolean checkHasValidMoves () {
         List<Piece> teaamPlayingPieces;
-
+        
         if (teamPlaying == Team.WHITE) {
             teaamPlayingPieces = whitePieces;
         } else {
             teaamPlayingPieces = blackPieces;
         }
-
+        
         for (Piece piece : teaamPlayingPieces) {
             if (piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition).size() > 0) {
                 return true;
@@ -84,10 +84,10 @@ public class Game {
         if (Board.getValidMovesEllipse() != null) {
             Board.hideValidMoves();
         }
-
+        
         List<Piece> sameTeam = new ArrayList<>();
         List<Piece> enemyTeam = new ArrayList<>();
-
+        
         if (Game.teamPlaying == Team.WHITE) {
             sameTeam = whitePieces;
             enemyTeam = blackPieces;
@@ -95,7 +95,7 @@ public class Game {
             sameTeam = blackPieces;
             enemyTeam = whitePieces;
         }
-
+        
         for (Piece piece : sameTeam) {
             if (piece.getPosition().equals(position)) {
                 Board.showValidMoves(piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), enemyTeam);

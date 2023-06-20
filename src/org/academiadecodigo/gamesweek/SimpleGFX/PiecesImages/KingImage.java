@@ -20,9 +20,9 @@ public class KingImage extends PieceImage {
         
         this.picture.draw();
     }
-
+    
     @Override
-    public void delete() {
+    public void delete () {
         this.picture.delete();
     }
     

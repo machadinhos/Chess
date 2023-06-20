@@ -28,7 +28,7 @@ public abstract class Piece {
     public abstract boolean checkValidMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam);
     
     public abstract List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition);
-
+    
     public abstract void die ();
     
     @Override

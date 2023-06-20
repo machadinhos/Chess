@@ -32,6 +32,6 @@ public abstract class PieceImage {
         this.xPosition = position.getCol() * Board.SQUARESIZE + Board.PADDING;
         this.yPosition = position.getRow() * Board.SQUARESIZE + Board.PADDING;
     }
-
+    
     public abstract void delete ();
 }

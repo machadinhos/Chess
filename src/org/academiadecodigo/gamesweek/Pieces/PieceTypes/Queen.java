@@ -18,9 +18,9 @@ public class Queen extends Piece {
     public void initImage () {
         this.picture = new QueenImage(super.getCopy());
     }
-
+    
     @Override
-    public void die() {
+    public void die () {
         this.picture.delete();
     }
     

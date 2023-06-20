@@ -19,9 +19,9 @@ public class Pawn extends Piece {
     public void initImage () {
         this.picture = new PawnImage(super.getCopy());
     }
-
+    
     @Override
-    public void die() {
+    public void die () {
         this.picture.delete();
     }
     
