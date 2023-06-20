@@ -20,6 +20,11 @@ public class HorseImage extends PieceImage {
         
         this.picture.draw();
     }
+
+    @Override
+    public Picture getPicture() {
+        return this.picture;
+    }
     
     @Override
     public void delete () {

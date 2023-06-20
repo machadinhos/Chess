@@ -5,6 +5,7 @@ import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.PiecesImages.KingImage;
 
+import java.lang.management.GarbageCollectorMXBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -383,6 +384,16 @@ public class King extends Piece {
                     validMoves.add(new Position(row, col));
                 }
             }
+        }
+
+        Position rockPosition1 = new Position(this.getPosition().getRow(), this.getPosition().getCol() + 2);
+        Position rockPosition2 = new Position(this.getPosition().getRow(), this.getPosition().getCol() - 2);
+
+        if (this.checkValidMove(rockPosition1, whiteTeam, blackTeam)) {
+            validMoves.add(rockPosition1);
+        }
+        if (this.checkValidMove(rockPosition2, whiteTeam, blackTeam)) {
+            validMoves.add(rockPosition2);
         }
         
         return validMoves;

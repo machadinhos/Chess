@@ -1,6 +1,9 @@
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
 import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Horse;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.King;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Pawn;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Tower;
 import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
@@ -15,7 +18,18 @@ public class Game {
     private static final Position blackKingPosition = blackPieces.get(blackPieces.size() - 1).getPosition();
     private static Team teamPlaying = Team.WHITE;
     private static Piece selectedPiece;
-    
+    private static final List<Piece> whitePiecesKilled = new ArrayList<>();
+    private static final List<Piece> blackPiecesKilled = new ArrayList<>();
+    private static GameState gameState = GameState.ONGOING;
+
+    public static void setGameState (GameState gameState) {
+        Game.gameState = gameState;
+    }
+
+    public static GameState getGameState() {
+        return gameState;
+    }
+
     public static Piece getSelectedPiece () {
         return selectedPiece;
     }
@@ -38,8 +52,64 @@ public class Game {
         
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
+
+    public static List<Piece> getWhitePiecesKilled () {
+        return whitePiecesKilled;
+    }
+
+    public static List<Piece> getBlackPiecesKilled () {
+        return blackPiecesKilled;
+    }
+
+    public static List<Piece> getWhitePieces () {
+        return whitePieces;
+    }
+
+    public static List<Piece> getBlackPieces () {
+        return blackPieces;
+    }
     
     public static void moveSelectedPiece (Position position) {
+        if (selectedPiece instanceof King) {
+            if (selectedPiece.getPosition().getCol() -2 == position.getCol() || selectedPiece.getPosition().getCol() + 2 == position.getCol()) {
+                int colTower;
+                if (selectedPiece.getPosition().getCol() -2 == position.getCol()) {
+                    colTower = 0;
+                } else {
+                    colTower = 7;
+                }
+
+                selectedPiece.move(position.getRow(), position.getCol());
+
+                List<Piece> sameTeam;
+                if (teamPlaying == Team.WHITE) {
+                    sameTeam = whitePieces;
+                } else {
+                    sameTeam = blackPieces;
+                }
+
+                for (Piece piece : sameTeam) {
+                    if (piece instanceof Tower tower) {
+                        if (tower.getPosition().getCol() == colTower && !tower.asMoved()) {
+                            if (colTower == 0) {
+                                tower.move(position.getRow(), 3);
+                            } else {
+                                tower.move(position.getRow(), 5);
+                            }
+
+                            if (teamPlaying == Team.WHITE) {
+                                teamPlaying = Team.BLACK;
+                            } else {
+                                teamPlaying = Team.WHITE;
+                            }
+
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
         Board.hideValidMoves();
         
         selectedPiece.move(position.getRow(), position.getCol());
@@ -58,6 +128,11 @@ public class Game {
             if (position.equals(piece.getPosition())) {
                 enemyTeam.remove(piece);
                 piece.die();
+                if (teamPlaying == Team.WHITE) {
+                    whitePiecesKilled.add(piece);
+                } else {
+                    blackPiecesKilled.add(piece);
+                }
                 break;
             }
         }
@@ -127,5 +202,19 @@ public class Game {
 
     public static boolean checkOnlyKingsAlive () {
         return blackPieces.size() == 1 && whitePieces.size() == 1;
+    }
+
+    public static void changePawnTo (Piece piece) {
+        Game.selectedPiece.die();
+        piece.move(selectedPiece.getPosition().getRow(), selectedPiece.getPosition().getCol());
+        piece.initImage();
+        Board.hideSelectAPieceMenu();
+        Game.blackPiecesKilled.remove(piece);
+        Game.whitePiecesKilled.remove(piece);
+        if (piece.getTeam() == Team.WHITE) {
+            Game.whitePieces.add(piece);
+        } else {
+            Game.blackPieces.add(piece);
+        }
     }
 }

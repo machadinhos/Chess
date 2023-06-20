@@ -1,14 +1,16 @@
 package org.academiadecodigo.gamesweek.SimpleGFX;
 
 import org.academiadecodigo.gamesweek.Pieces.Piece;
+import org.academiadecodigo.gamesweek.Pieces.PieceTypes.*;
 import org.academiadecodigo.gamesweek.Pieces.Position;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
+import org.academiadecodigo.simplegraphics.graphics.*;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.lang.management.BufferPoolMXBean;
+import java.lang.management.GarbageCollectorMXBean;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Board {
     public static final int SQUARESIZE = 90;
@@ -19,6 +21,7 @@ public class Board {
     private static final Rectangle[][] boardSquares = new Rectangle[8][8];
     private static List<Ellipse> validMovesEllipse;
     private static List<Position> validMovesPositions;
+    private static List<Movable> selectAPieceMenu;
     
     public static void init () {
         int xPosition = PADDING;
@@ -198,6 +201,77 @@ public class Board {
             validMovesEllipse = null;
             validMovesPositions = null;
         }
+    }
+
+    public static List<Piece> showSelectAPieceMenu (List<Piece> piecesToChoseFrom) {
+        if (Board.selectAPieceMenu == null) {
+            Board.selectAPieceMenu = new ArrayList<>();
+        }
+        List<Piece> pieces = new ArrayList<>();
+
+        Rectangle rectangle = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
+        Rectangle rectangle2 = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
+
+        Board.selectAPieceMenu.add(rectangle2);
+        Board.selectAPieceMenu.add(rectangle);
+
+        rectangle.setColor(Color.WHITE);
+        rectangle.fill();
+
+        rectangle2.setColor(Color.BLACK);
+        rectangle2.draw();
+
+        List<Piece> validPieces = new ArrayList<>();
+        boolean alreadyExists;
+
+        for (Piece piecesKilled : piecesToChoseFrom) {
+            alreadyExists = false;
+            for (Piece piece : validPieces) {
+                if (piecesKilled.getClass() == piece.getClass()) {
+                    alreadyExists = true;
+                    break;
+                }
+            }
+
+            if (!alreadyExists) {
+                validPieces.add(piecesKilled);
+            }
+        }
+
+        int col = 2;
+
+        for (Piece piece : validPieces) {
+            if (!(piece instanceof Pawn)) {
+                piece.initImage();
+                piece.move(4, col);
+                pieces.add(piece);
+                col++;
+                if (piece instanceof Queen queen) {
+                    Board.selectAPieceMenu.add((Movable)  queen.getPicture().getPicture());
+                } else if (piece instanceof Tower tower) {
+                    Board.selectAPieceMenu.add((Movable) tower.getPicture().getPicture());
+                } else if (piece instanceof Bishop bishop) {
+                    Board.selectAPieceMenu.add((Movable) bishop.getPicture().getPicture());
+                } else if (piece instanceof Horse horse) {
+                    Board.selectAPieceMenu.add((Movable) horse.getPicture().getPicture());
+                }
+            }
+        }
+        return pieces;
+    }
+
+    public static void hideSelectAPieceMenu () {
+        if (Board.selectAPieceMenu == null) {
+            return;
+        }
+        for (Movable thing : Board.selectAPieceMenu) {
+            if (thing instanceof Rectangle rectangle) {
+                rectangle.delete();
+            } else if (thing instanceof Picture picture) {
+                picture.delete();
+            }
+        }
+        Board.selectAPieceMenu = null;
     }
     
     public static int[] positionToPixel (Position position) {

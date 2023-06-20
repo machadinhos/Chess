@@ -19,7 +19,12 @@ public class BishopImage extends PieceImage {
         
         this.picture.draw();
     }
-    
+
+    @Override
+    public Picture getPicture() {
+        return this.picture;
+    }
+
     @Override
     public void delete () {
         this.picture.delete();

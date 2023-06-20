@@ -1,0 +1,5 @@
+public enum GameState {
+    ONGOING,
+    ENDED,
+    WAITINGTOCHANGEPAWNFORANOTHERDEADPIECE
+}
