@@ -7,16 +7,16 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class TowerImage extends PieceImage {
     private final Picture picture;
-    
-    public TowerImage (Piece piece) {
+
+    public TowerImage(Piece piece) {
         super(piece.getPosition());
-        
+
         if (piece.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wR.png");
         } else {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bR.png");
         }
-        
+
         this.picture.draw();
     }
 
@@ -24,14 +24,14 @@ public class TowerImage extends PieceImage {
     public Picture getPicture() {
         return this.picture;
     }
-    
+
     @Override
-    public void delete () {
+    public void delete() {
         this.picture.delete();
     }
-    
-    public void updateImagePosition () {
+
+    public void updateImagePosition() {
         super.updateImagePosition(this.picture);
     }
-    
+
 }

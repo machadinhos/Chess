@@ -5,38 +5,38 @@ import java.util.List;
 public abstract class Piece {
     private final Team team;
     private final Position position;
-    
-    public Piece (Team team, Position position) {
+
+    public Piece(Team team, Position position) {
         this.team = team;
         this.position = position;
     }
-    
-    public abstract void initImage ();
-    
-    public Piece getCopy () {
+
+    public abstract void initImage();
+
+    public Piece getCopy() {
         return this;
     }
-    
-    public Team getTeam () {
+
+    public Team getTeam() {
         return team;
     }
-    
-    public void move (int row, int col) {
+
+    public void move(int row, int col) {
         this.position.setNewPosition(row, col);
     }
-    
-    public abstract boolean checkValidMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam);
-    
-    public abstract List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition);
-    
-    public abstract void die ();
-    
+
+    public abstract boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam);
+
+    public abstract List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition);
+
+    public abstract void die();
+
     @Override
-    public String toString () {
+    public String toString() {
         return "Piece " + this.team.toString() + getPosition().toString();
     }
-    
-    public Position getPosition () {
+
+    public Position getPosition() {
         return position;
     }
 }

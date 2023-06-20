@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PieceInitializer {
-    public static List<Piece> initWhitePieces () {
+    public static List<Piece> initWhitePieces() {
         List<Piece> pieces = new ArrayList<>();
-        
+
         for (int i = 0; i < 8; i++) {
             pieces.add(new Pawn(Team.WHITE, new Position(6, i)));
         }
@@ -24,17 +24,17 @@ public class PieceInitializer {
 
         pieces.add(new Queen(Team.WHITE, new Position(7, 3)));
         pieces.add(new King(Team.WHITE, new Position(7, 4)));
-        
+
         for (Piece piece : pieces) {
             piece.initImage();
         }
-        
+
         return pieces;
     }
-    
-    public static List<Piece> initBlackPieces () {
+
+    public static List<Piece> initBlackPieces() {
         List<Piece> pieces = new ArrayList<>();
-        
+
         for (int i = 0; i < 8; i++) {
             pieces.add(new Pawn(Team.BLACK, new Position(1, i)));
         }
@@ -53,12 +53,12 @@ public class PieceInitializer {
 
         return pieces;
     }
-    
-    public static void initImages (List<Piece> whitePices, List<Piece> blackPieces) {
+
+    public static void initImages(List<Piece> whitePices, List<Piece> blackPieces) {
         for (Piece piece : whitePices) {
             piece.initImage();
         }
-        
+
         for (Piece piece : blackPieces) {
             piece.initImage();
         }
