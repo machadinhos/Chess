@@ -12,9 +12,9 @@ public class TowerImage extends PieceImage {
         super(piece.getPosition());
 
         if (piece.getTeam() == Team.WHITE) {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wR.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/wR.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bR.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/bR.png");
         }
 
         this.picture.draw();

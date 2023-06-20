@@ -13,9 +13,9 @@ public class PawnImage extends PieceImage {
         super(piece.getPosition());
 
         if (piece.getTeam() == Team.WHITE) {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wP.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/wP.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bP.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/bP.png");
         }
 
         this.picture.draw();

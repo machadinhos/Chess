@@ -13,9 +13,9 @@ public class HorseImage extends PieceImage {
         super(piece.getPosition());
 
         if (piece.getTeam() == Team.WHITE) {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wN.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/wN.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/bN.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/bN.png");
         }
 
         this.picture.draw();

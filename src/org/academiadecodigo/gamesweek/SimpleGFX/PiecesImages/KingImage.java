@@ -13,9 +13,9 @@ public class KingImage extends PieceImage {
         super(piece.getPosition());
 
         if (piece.getTeam() == Team.WHITE) {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/ChessPieces/wK.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/wK.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), getyPosition(), "resources/ChessPieces/bK.png");
+            this.picture = new Picture(super.getxPosition(), getyPosition(), "resources/bK.png");
         }
 
         this.picture.draw();
