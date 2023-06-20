@@ -205,6 +205,6 @@ public class Board {
     }
 
     public static Position pixelToPosition (int x , int y) {
-        return new Position((y - Board.SQUARESIZE / 2) / Board.SQUARESIZE, (x - Board.SQUARESIZE / 2) / Board.SQUARESIZE);
+        return new Position((y - 40) / Board.SQUARESIZE, (x - 20) / Board.SQUARESIZE);
     }
 }

@@ -41,6 +41,7 @@ public class King extends Piece {
         }
         
         List<Piece> piecesSameTeam;
+        
         if (super.getTeam() == Team.WHITE) {
             piecesSameTeam = whiteTeam;
         } else {

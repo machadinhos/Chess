@@ -19,7 +19,9 @@ public class Handler implements MouseHandler {
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-//        System.out.println(Board.pixelToPosition( (int) mouseEvent.getX(), (int) mouseEvent.getY()));
+        System.out.println(Board.pixelToPosition( (int) mouseEvent.getX(), (int) mouseEvent.getY()));
+        System.out.println(mouseEvent.getX());
+        System.out.println(mouseEvent.getY());
 
         if (Game.checkHasValidMoves()) {
 

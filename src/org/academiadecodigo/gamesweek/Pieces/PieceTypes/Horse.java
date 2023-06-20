@@ -93,6 +93,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -131,6 +132,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -169,6 +171,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -207,6 +210,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -245,6 +249,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -283,6 +288,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -321,6 +327,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
@@ -359,6 +366,7 @@ public class Horse extends Piece {
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
+                    break;
                 }
             }
             
