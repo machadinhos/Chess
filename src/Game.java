@@ -103,4 +103,29 @@ public class Game {
             }
         }
     }
+
+    public static boolean checkKingInRisk () {
+        Position kingPlayingPosition;
+        List<Piece> enemyTeam;
+
+        if (teamPlaying == Team.WHITE) {
+            kingPlayingPosition = whiteKingPosition;
+            enemyTeam = blackPieces;
+        } else {
+            kingPlayingPosition = blackKingPosition;
+            enemyTeam = whitePieces;
+        }
+
+        for (Piece enemy : enemyTeam) {
+            if (enemy.checkValidMove(kingPlayingPosition, whitePieces,blackPieces)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean checkOnlyKingsAlive () {
+        return blackPieces.size() == 1 && whitePieces.size() == 1;
+    }
 }

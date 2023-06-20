@@ -1,3 +1,4 @@
+import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.Position;
 import org.academiadecodigo.gamesweek.Pieces.Team;
 import org.academiadecodigo.gamesweek.SimpleGFX.Board;
@@ -38,10 +39,18 @@ public class Handler implements MouseHandler {
                         
                         if (!Game.checkHasValidMoves()) {
                             String str;
-                            if (Game.getTeamPlaying() == Team.WHITE) {
-                                str = "Black won!";
+                            int growSize;
+
+                            if (!Game.checkKingInRisk()) {
+                                growSize = 110;
+                                str = "Tie...";
                             } else {
-                                str = "White won!";
+                                growSize = 75;
+                                if (Game.getTeamPlaying() == Team.WHITE) {
+                                    str = "Black won!";
+                                } else {
+                                    str = "White won!";
+                                }
                             }
                             
                             Rectangle rectangle1 = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
@@ -49,7 +58,7 @@ public class Handler implements MouseHandler {
                             
                             rectangle1.setColor(Color.WHITE);
                             text.setColor(Color.BLACK);
-                            text.grow(200, 75);
+                            text.grow(200, growSize);
                             
                             Rectangle rectangle2 = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
                             
@@ -61,6 +70,25 @@ public class Handler implements MouseHandler {
                         }
                         break;
                     }
+                }
+
+                if (Game.checkOnlyKingsAlive()) {
+                    String str = "Tie...";
+
+                    Rectangle rectangle1 = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
+                    Text text = new Text((double) Board.BOARDSIZE / 2 + 10, (double) Board.BOARDSIZE / 2 + 10, str);
+
+                    rectangle1.setColor(Color.WHITE);
+                    text.setColor(Color.BLACK);
+                    text.grow(200, 110);
+
+                    Rectangle rectangle2 = new Rectangle((double) Board.BOARDSIZE / 2 - 315, (double) Board.BOARDSIZE / 2 - 90, 650, 200);
+
+                    rectangle2.setColor(Color.BLACK);
+                    rectangle2.draw();
+
+                    rectangle1.fill();
+                    text.draw();
                 }
                 
                 Board.hideValidMoves();
