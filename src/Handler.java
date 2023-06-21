@@ -23,11 +23,13 @@ public class Handler implements MouseHandler {
 
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
-//        System.out.println(Board.pixelToPosition((int) mouseEvent.getX(), (int) mouseEvent.getY()));
-//        System.out.println(mouseEvent.getX());
-//        System.out.println(mouseEvent.getY());
-
         if (Game.getGameState() == GameState.ENDED) {
+            try {
+                Thread.sleep(3000);
+                System.exit(0);
+            } catch (InterruptedException e) {
+                System.exit(0);
+            }
         } else if (Game.getGameState() == GameState.WAITINGTOCHANGEPAWNFORANOTHERDEADPIECE) {
             Position positionClicked = Board.pixelToPosition((int) mouseEvent.getX(), (int) mouseEvent.getY());
 
@@ -102,6 +104,8 @@ public class Handler implements MouseHandler {
 
                                 rectangle1.fill();
                                 text.draw();
+                                
+                                this.mouseClicked(mouseEvent);
                             }
                             break;
                         }

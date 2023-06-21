@@ -12,9 +12,9 @@ public class QueenImage extends PieceImage {
         super(piece.getPosition());
 
         if (piece.getTeam() == Team.WHITE) {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/wQ.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "wQ.png");
         } else {
-            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "resources/bQ.png");
+            this.picture = new Picture(super.getxPosition(), super.getyPosition(), "bQ.png");
         }
 
         this.picture.draw();
