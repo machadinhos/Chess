@@ -30,3 +30,4 @@ bin/
 ### Mac OS ###
 .DS_Store
 /src/META-INF/MANIFEST.MF
+/resources/META-INF/MANIFEST.MF
