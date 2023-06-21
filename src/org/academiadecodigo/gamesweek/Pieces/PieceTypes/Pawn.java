@@ -427,6 +427,14 @@ public class Pawn extends Piece {
         for (Piece piece : jointPieces) {
             if (piece.getPosition().equals(position)) {
                 return false;
+            } else if (super.getTeam() == Team.WHITE) {
+                if (piece.getPosition().equals(new Position(position.getRow() + 1, position.getCol()))) {
+                    return false;
+                }
+            } else if (super.getTeam() == Team.BLACK) {
+                if (piece.getPosition().equals(new Position(position.getRow() - 1, position.getCol()))) {
+                    return false;
+                }
             }
         }
 
