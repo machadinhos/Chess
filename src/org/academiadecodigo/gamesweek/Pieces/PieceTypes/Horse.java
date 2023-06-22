@@ -397,4 +397,9 @@ public class Horse extends Piece {
     public HorseImage getPicture () {
         return picture;
     }
+    
+    @Override
+    public String toString () {
+        return "Horse" + super.getTeam() + getPosition().toString();
+    }
 }

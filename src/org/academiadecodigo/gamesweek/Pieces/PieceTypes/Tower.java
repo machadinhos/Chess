@@ -283,4 +283,9 @@ public class Tower extends Piece {
     public boolean asMoved () {
         return asMoved;
     }
+    
+    @Override
+    public String toString () {
+        return "Tower" + super.getTeam() + getPosition().toString();
+    }
 }

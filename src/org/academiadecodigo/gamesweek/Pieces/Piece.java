@@ -88,9 +88,7 @@ public abstract class Piece {
      * @return The String representation of the piece.
      */
     @Override
-    public String toString () {
-        return "Piece " + this.team.toString() + getPosition().toString();
-    }
+    public abstract String toString ();
     
     /**
      * Return the current position of the piece.

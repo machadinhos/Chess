@@ -444,4 +444,9 @@ public class Pawn extends Piece {
     public PawnImage getPicture () {
         return picture;
     }
+    
+    @Override
+    public String toString () {
+        return "Pawn" + super.getTeam() + getPosition().toString();
+    }
 }

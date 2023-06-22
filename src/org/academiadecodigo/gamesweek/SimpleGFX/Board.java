@@ -171,6 +171,7 @@ public class Board {
             
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(move)) {
+                    
                     hasEnemy = true;
                 }
             }

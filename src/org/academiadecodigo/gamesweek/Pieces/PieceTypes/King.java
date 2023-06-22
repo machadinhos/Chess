@@ -461,4 +461,9 @@ public class King extends Piece {
     public KingImage getPicture () {
         return picture;
     }
+    
+    @Override
+    public String toString () {
+        return "King" + super.getTeam() + getPosition().toString();
+    }
 }

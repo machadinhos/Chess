@@ -53,6 +53,9 @@ public class Game {
     }
     
     public static void moveSelectedPiece (Position position) {
+        System.out.println("White -> " + whitePieces.size());
+        System.out.println("Black -> " + blackPieces.size());
+        
         if (selectedPiece instanceof King) {
             if (selectedPiece.getPosition().getCol() - 2 == position.getCol() || selectedPiece.getPosition().getCol() + 2 == position.getCol()) {
                 int colTower;
@@ -140,6 +143,9 @@ public class Game {
     }
     
     public static void selectPiece (Position position) {
+        System.out.println("White -> " + whitePieces.size());
+        System.out.println("Black -> " + blackPieces.size());
+        
         if (Board.getValidMovesEllipse() != null) {
             Board.hideValidMoves();
         }

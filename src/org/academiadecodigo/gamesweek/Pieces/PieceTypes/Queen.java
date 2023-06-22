@@ -486,4 +486,9 @@ public class Queen extends Piece {
     public QueenImage getPicture () {
         return picture;
     }
+    
+    @Override
+    public String toString () {
+        return "Queen" + super.getTeam() + getPosition().toString();
+    }
 }
