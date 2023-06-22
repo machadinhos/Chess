@@ -14,10 +14,8 @@ import java.util.List;
 
 
 public class Handler implements MouseHandler {
-    private final Mouse mouse;
-    
     public Handler () {
-        mouse = new Mouse(this);
+        new Mouse(this);
         mouseClicked(new MouseEvent(0, 0));
     }
     

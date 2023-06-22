@@ -52,14 +52,6 @@ public class Game {
         return blackPiecesKilled;
     }
     
-    public static List<Piece> getWhitePieces () {
-        return whitePieces;
-    }
-    
-    public static List<Piece> getBlackPieces () {
-        return blackPieces;
-    }
-    
     public static void moveSelectedPiece (Position position) {
         if (selectedPiece instanceof King) {
             if (selectedPiece.getPosition().getCol() - 2 == position.getCol() || selectedPiece.getPosition().getCol() + 2 == position.getCol()) {
