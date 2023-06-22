@@ -5,7 +5,15 @@ import org.academiadecodigo.gamesweek.Pieces.PieceTypes.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class initializes the white and black team.
+ */
 public class PieceInitializer {
+    /**
+     * This method builds the white team and returns a list of its pieces.
+     *
+     * @return The list contains the white team pieces.
+     */
     public static List<Piece> initWhitePieces() {
         List<Piece> pieces = new ArrayList<>();
 
@@ -24,14 +32,15 @@ public class PieceInitializer {
 
         pieces.add(new Queen(Team.WHITE, new Position(7, 3)));
         pieces.add(new King(Team.WHITE, new Position(7, 4)));
-
-        for (Piece piece : pieces) {
-            piece.initImage();
-        }
-
+        
         return pieces;
     }
-
+    
+    /**
+     * This method builds the black team and returns a list of its pieces.
+     *
+     * @return The list contains the black team pieces.
+     */
     public static List<Piece> initBlackPieces() {
         List<Piece> pieces = new ArrayList<>();
 
@@ -53,7 +62,13 @@ public class PieceInitializer {
 
         return pieces;
     }
-
+    
+    /**
+     * This method initializes the Picture of each piece of each team.
+     *
+     * @param whitePices The list of white pieces.
+     * @param blackPieces The list of black pieces.
+     */
     public static void initImages(List<Piece> whitePices, List<Piece> blackPieces) {
         for (Piece piece : whitePices) {
             piece.initImage();

@@ -33,13 +33,6 @@ public class Game {
         return selectedPiece;
     }
 
-    public static void test() throws InterruptedException {
-        whitePieces.add(new Horse(Team.WHITE, new Position(5, 4)));
-        whitePieces.get(whitePieces.size() - 1).initImage();
-
-        Board.showValidMoves(whitePieces.get(whitePieces.size() - 1).getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), blackPieces);
-    }
-
     public static Team getTeamPlaying() {
         return teamPlaying;
     }
