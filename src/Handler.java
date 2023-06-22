@@ -79,7 +79,7 @@ public class Handler implements MouseHandler {
                                 String str;
                                 int growSize;
                                 
-                                if (!Game.checkKingInRisk()) {
+                                if (Game.checkKingIsSafe()) {
                                     growSize = 110;
                                     str = "Tie...";
                                 } else {
@@ -143,7 +143,7 @@ public class Handler implements MouseHandler {
                 String str;
                 int growSize;
                 
-                if (!Game.checkKingInRisk()) {
+                if (Game.checkKingIsSafe()) {
                     growSize = 110;
                     str = "Tie...";
                 } else {

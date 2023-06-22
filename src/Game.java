@@ -163,7 +163,7 @@ public class Game {
         }
     }
     
-    public static boolean checkKingInRisk () {
+    public static boolean checkKingIsSafe () {
         Position kingPlayingPosition;
         List<Piece> enemyTeam;
         
@@ -177,11 +177,11 @@ public class Game {
         
         for (Piece enemy : enemyTeam) {
             if (enemy.checkValidMove(kingPlayingPosition, whitePieces, blackPieces)) {
-                return true;
+                return false;
             }
         }
         
-        return false;
+        return true;
     }
     
     public static boolean checkOnlyKingsAlive () {
