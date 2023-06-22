@@ -6,32 +6,32 @@ import org.academiadecodigo.gamesweek.SimpleGFX.PieceImage;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class PawnImage extends PieceImage {
-    
+
     private final Picture picture;
-    
-    public PawnImage (Piece piece) {
+
+    public PawnImage(Piece piece) {
         super(piece.getPosition());
-        
+
         if (piece.getTeam() == Team.WHITE) {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "wP.png");
         } else {
             this.picture = new Picture(super.getxPosition(), super.getyPosition(), "bP.png");
         }
-        
+
         this.picture.draw();
     }
-    
+
     @Override
-    public Picture getPicture () {
+    public Picture getPicture() {
         return this.picture;
     }
-    
+
     @Override
-    public void delete () {
+    public void delete() {
         this.picture.delete();
     }
-    
-    public void updateImagePosition () {
+
+    public void updateImagePosition() {
         super.updateImagePosition(this.picture);
     }
 }

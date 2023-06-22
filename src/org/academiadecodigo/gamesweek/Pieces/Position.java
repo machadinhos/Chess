@@ -13,7 +13,7 @@ public class Position {
      * @param row The row of the piece.
      * @param col The collum of the piece.
      */
-    public Position (int row, int col) {
+    public Position(int row, int col) {
         this.row = row;
         this.col = col;
     }
@@ -24,7 +24,7 @@ public class Position {
      * @param row The new row.
      * @param col The new collum.
      */
-    public void setNewPosition (int row, int col) {
+    public void setNewPosition(int row, int col) {
         this.row = row;
         this.col = col;
     }
@@ -35,7 +35,7 @@ public class Position {
      * @param position Position that will be compared.
      * @return Boolean valeu that represents if the two positions are equal or not.
      */
-    public boolean equals (Position position) {
+    public boolean equals(Position position) {
         return this.row == position.getRow() && this.col == position.getCol();
     }
 
@@ -44,7 +44,7 @@ public class Position {
      *
      * @return The row of the position.
      */
-    public int getRow () {
+    public int getRow() {
         return row;
     }
 
@@ -53,7 +53,7 @@ public class Position {
      *
      * @return The collum of the position.
      */
-    public int getCol () {
+    public int getCol() {
         return col;
     }
 
@@ -63,7 +63,7 @@ public class Position {
      * @return The String representation of the position.
      */
     @Override
-    public String toString () {
+    public String toString() {
         return "Position{" +
                 "row=" + row +
                 ", col=" + col +
