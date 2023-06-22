@@ -1,6 +1,5 @@
 import org.academiadecodigo.gamesweek.Pieces.Piece;
 import org.academiadecodigo.gamesweek.Pieces.PieceInitializer;
-import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Horse;
 import org.academiadecodigo.gamesweek.Pieces.PieceTypes.King;
 import org.academiadecodigo.gamesweek.Pieces.PieceTypes.Tower;
 import org.academiadecodigo.gamesweek.Pieces.Position;
@@ -20,48 +19,48 @@ public class Game {
     private static Team teamPlaying = Team.WHITE;
     private static Piece selectedPiece;
     private static GameState gameState = GameState.ONGOING;
-
-    public static GameState getGameState() {
+    
+    public static GameState getGameState () {
         return gameState;
     }
-
-    public static void setGameState(GameState gameState) {
+    
+    public static void setGameState (GameState gameState) {
         Game.gameState = gameState;
     }
-
-    public static Piece getSelectedPiece() {
+    
+    public static Piece getSelectedPiece () {
         return selectedPiece;
     }
-
-    public static Team getTeamPlaying() {
+    
+    public static Team getTeamPlaying () {
         return teamPlaying;
     }
-
-    public static void start() {
+    
+    public static void start () {
         Board.init();
-
+        
         new Handler();
-
+        
         PieceInitializer.initImages(whitePieces, blackPieces);
     }
-
-    public static List<Piece> getWhitePiecesKilled() {
+    
+    public static List<Piece> getWhitePiecesKilled () {
         return whitePiecesKilled;
     }
-
-    public static List<Piece> getBlackPiecesKilled() {
+    
+    public static List<Piece> getBlackPiecesKilled () {
         return blackPiecesKilled;
     }
-
-    public static List<Piece> getWhitePieces() {
+    
+    public static List<Piece> getWhitePieces () {
         return whitePieces;
     }
-
-    public static List<Piece> getBlackPieces() {
+    
+    public static List<Piece> getBlackPieces () {
         return blackPieces;
     }
-
-    public static void moveSelectedPiece(Position position) {
+    
+    public static void moveSelectedPiece (Position position) {
         if (selectedPiece instanceof King) {
             if (selectedPiece.getPosition().getCol() - 2 == position.getCol() || selectedPiece.getPosition().getCol() + 2 == position.getCol()) {
                 int colTower;
@@ -70,17 +69,17 @@ public class Game {
                 } else {
                     colTower = 7;
                 }
-
+                
                 selectedPiece.move(position.getRow(), position.getCol());
-
+                
                 List<Piece> sameTeam;
-
+                
                 if (teamPlaying == Team.WHITE) {
                     sameTeam = whitePieces;
                 } else {
                     sameTeam = blackPieces;
                 }
-
+                
                 for (Piece piece : sameTeam) {
                     if (piece instanceof Tower tower) {
                         if (tower.getPosition().getCol() == colTower && !tower.asMoved()) {
@@ -89,26 +88,26 @@ public class Game {
                             } else {
                                 tower.move(position.getRow(), 5);
                             }
-
+                            
                             if (teamPlaying == Team.WHITE) {
                                 teamPlaying = Team.BLACK;
                             } else {
                                 teamPlaying = Team.WHITE;
                             }
-
+                            
                             return;
                         }
                     }
                 }
             }
         }
-
+        
         Board.hideValidMoves();
-
+        
         selectedPiece.move(position.getRow(), position.getCol());
-
+        
         List<Piece> enemyTeam;
-
+        
         if (teamPlaying == Team.WHITE) {
             enemyTeam = blackPieces;
             teamPlaying = Team.BLACK;
@@ -116,7 +115,7 @@ public class Game {
             enemyTeam = whitePieces;
             teamPlaying = Team.WHITE;
         }
-
+        
         for (Piece piece : enemyTeam) {
             if (position.equals(piece.getPosition())) {
                 enemyTeam.remove(piece);
@@ -130,16 +129,16 @@ public class Game {
             }
         }
     }
-
-    public static boolean checkHasValidMoves() {
+    
+    public static boolean checkHasValidMoves () {
         List<Piece> teaamPlayingPieces;
-
+        
         if (teamPlaying == Team.WHITE) {
             teaamPlayingPieces = whitePieces;
         } else {
             teaamPlayingPieces = blackPieces;
         }
-
+        
         for (Piece piece : teaamPlayingPieces) {
             if (piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition).size() > 0) {
                 return true;
@@ -147,15 +146,15 @@ public class Game {
         }
         return false;
     }
-
-    public static void selectPiece(Position position) {
+    
+    public static void selectPiece (Position position) {
         if (Board.getValidMovesEllipse() != null) {
             Board.hideValidMoves();
         }
-
+        
         List<Piece> sameTeam = new ArrayList<>();
         List<Piece> enemyTeam = new ArrayList<>();
-
+        
         if (Game.teamPlaying == Team.WHITE) {
             sameTeam = whitePieces;
             enemyTeam = blackPieces;
@@ -163,7 +162,7 @@ public class Game {
             sameTeam = blackPieces;
             enemyTeam = whitePieces;
         }
-
+        
         for (Piece piece : sameTeam) {
             if (piece.getPosition().equals(position)) {
                 Board.showValidMoves(piece.getValidMoves(whitePieces, blackPieces, whiteKingPosition, blackKingPosition), enemyTeam);
@@ -171,11 +170,11 @@ public class Game {
             }
         }
     }
-
-    public static boolean checkKingInRisk() {
+    
+    public static boolean checkKingInRisk () {
         Position kingPlayingPosition;
         List<Piece> enemyTeam;
-
+        
         if (teamPlaying == Team.WHITE) {
             kingPlayingPosition = whiteKingPosition;
             enemyTeam = blackPieces;
@@ -183,21 +182,21 @@ public class Game {
             kingPlayingPosition = blackKingPosition;
             enemyTeam = whitePieces;
         }
-
+        
         for (Piece enemy : enemyTeam) {
             if (enemy.checkValidMove(kingPlayingPosition, whitePieces, blackPieces)) {
                 return true;
             }
         }
-
+        
         return false;
     }
-
-    public static boolean checkOnlyKingsAlive() {
+    
+    public static boolean checkOnlyKingsAlive () {
         return blackPieces.size() == 1 && whitePieces.size() == 1;
     }
-
-    public static void changePawnTo(Piece piece) {
+    
+    public static void changePawnTo (Piece piece) {
         Game.selectedPiece.die();
         piece.move(selectedPiece.getPosition().getRow(), selectedPiece.getPosition().getCol());
         piece.initImage();

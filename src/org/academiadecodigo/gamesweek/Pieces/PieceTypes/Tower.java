@@ -11,34 +11,34 @@ import java.util.List;
 public class Tower extends Piece {
     private TowerImage picture;
     private boolean asMoved;
-
-    public Tower(Team team, Position position) {
+    
+    public Tower (Team team, Position position) {
         super(team, position);
     }
-
-    public void initImage() {
+    
+    public void initImage () {
         this.picture = new TowerImage(super.getCopy());
     }
-
+    
     @Override
-    public void move(int row, int col) {
+    public void move (int row, int col) {
         super.move(row, col);
         this.picture.updateImagePosition();
         this.asMoved = true;
     }
-
+    
     @Override
-    public boolean checkValidMove(Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
+    public boolean checkValidMove (Position position, List<Piece> whiteTeam, List<Piece> blackTeam) {
         if (position.getCol() != super.getPosition().getCol() && position.getRow() != super.getPosition().getRow()) {
             return false;
         }
-
+        
         int col = super.getPosition().getCol();
         int row = super.getPosition().getRow();
-
+        
         List<Piece> jointPieces = new ArrayList<>(whiteTeam);
         jointPieces.addAll(blackTeam);
-
+        
         while (position.getCol() != col || position.getRow() != row) {
             if (position.getCol() == super.getPosition().getCol()) {
                 if (row < position.getRow()) {
@@ -53,7 +53,7 @@ public class Tower extends Piece {
                     col--;
                 }
             }
-
+            
             for (Piece piece : jointPieces) {
                 if (piece.getPosition().getRow() == row && piece.getPosition().getCol() == col) {
                     if (col == position.getCol() && row == position.getRow()) {
@@ -64,20 +64,20 @@ public class Tower extends Piece {
                 }
             }
         }
-
+        
         return true;
     }
-
+    
     @Override
-    public List<Position> getValidMoves(List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
+    public List<Position> getValidMoves (List<Piece> whiteTeam, List<Piece> blackTeam, Position whiteKingPosition, Position blackKingPosition) {
         List<Position> validMoves = new ArrayList<>();
-
+        
         List<Piece> enemyTeam;
         List<Piece> sameTeam;
         List<Piece> enemyTeamCopy;
         List<Piece> sameTeamCopy;
         Position teamKingPosition;
-
+        
         if (super.getTeam() == Team.WHITE) {
             enemyTeam = blackTeam;
             sameTeam = whiteTeam;
@@ -87,32 +87,32 @@ public class Tower extends Piece {
             sameTeam = blackTeam;
             teamKingPosition = blackKingPosition;
         }
-
+        
         int col;
         int row;
         boolean isKingSafe;
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-
+        
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             isKingSafe = true;
-
+            
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             row--;
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Tower(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                     break;
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -126,7 +126,7 @@ public class Tower extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (row <= 7 && row >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
@@ -135,28 +135,28 @@ public class Tower extends Piece {
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-
+        
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             isKingSafe = true;
-
+            
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             row++;
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Tower(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                     break;
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -170,7 +170,7 @@ public class Tower extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (row <= 7 && row >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
@@ -179,28 +179,28 @@ public class Tower extends Piece {
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-
+        
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             isKingSafe = true;
-
+            
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             col++;
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Tower(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                     break;
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -214,7 +214,7 @@ public class Tower extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (col <= 7 && col >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
@@ -223,28 +223,28 @@ public class Tower extends Piece {
                 }
             }
         }
-
+        
         col = super.getPosition().getCol();
         row = super.getPosition().getRow();
-
+        
         while (col <= 7 && row <= 7 && col >= 0 && row >= 0) {
             isKingSafe = true;
-
+            
             enemyTeamCopy = new ArrayList<>(enemyTeam);
             sameTeamCopy = new ArrayList<>(sameTeam);
-
+            
             col--;
-
+            
             sameTeamCopy.remove(super.getCopy());
             sameTeamCopy.add(new Tower(super.getTeam(), new Position(row, col)));
-
+            
             for (Piece enemy : enemyTeam) {
                 if (enemy.getPosition().equals(new Position(row, col))) {
                     enemyTeamCopy.remove(enemy);
                     break;
                 }
             }
-
+            
             for (Piece enemy : enemyTeamCopy) {
                 if (super.getTeam() == Team.WHITE) {
                     if (enemy.checkValidMove(teamKingPosition, sameTeamCopy, enemyTeamCopy)) {
@@ -258,7 +258,7 @@ public class Tower extends Piece {
                     }
                 }
             }
-
+            
             if (isKingSafe) {
                 if (col <= 7 && col >= 0) {
                     if (this.checkValidMove(new Position(row, col), whiteTeam, blackTeam)) {
@@ -267,20 +267,20 @@ public class Tower extends Piece {
                 }
             }
         }
-
+        
         return validMoves;
     }
-
+    
     @Override
-    public void die() {
+    public void die () {
         this.picture.delete();
     }
-
-    public TowerImage getPicture() {
+    
+    public TowerImage getPicture () {
         return picture;
     }
-
-    public boolean asMoved() {
+    
+    public boolean asMoved () {
         return asMoved;
     }
 }
