@@ -416,14 +416,21 @@ public class King extends Piece {
                 } else {
                     sameTeam = blackTeam;
                 }
-
+                
+                boolean hasValidTower = false;
+                
                 for (Piece piece : sameTeam) {
                     if (piece instanceof Tower tower) {
                         if (tower.asMoved() || piece.getPosition().getCol() != towerCol) {
                             return false;
                         }
+                        hasValidTower = true;
                         break;
                     }
+                }
+                
+                if (!hasValidTower) {
+                    return false;
                 }
 
                 List<Piece> jointPieces = new ArrayList<>(whiteTeam);
