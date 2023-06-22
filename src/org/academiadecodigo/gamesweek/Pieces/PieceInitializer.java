@@ -13,13 +13,13 @@ public class PieceInitializer {
 //            pieces.add(new Pawn(Team.WHITE, new Position(6, i)));
 //        }
 
-        pieces.add(new Tower(Team.WHITE, new Position(7, 0)));
-        pieces.add(new Tower(Team.WHITE, new Position(7, 7)));
+//        pieces.add(new Tower(Team.WHITE, new Position(7, 0)));
+//        pieces.add(new Tower(Team.WHITE, new Position(7, 7)));
 //
 //        pieces.add(new Horse(Team.WHITE, new Position(7, 1)));
 //        pieces.add(new Horse(Team.WHITE, new Position(7, 6)));
 //
-        pieces.add(new Bishop(Team.WHITE, new Position(7, 2)));
+//        pieces.add(new Bishop(Team.WHITE, new Position(7, 2)));
 //        pieces.add(new Bishop(Team.WHITE, new Position(7, 5)));
 //
 //        pieces.add(new Queen(Team.WHITE, new Position(7, 3)));

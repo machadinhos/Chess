@@ -384,6 +384,7 @@ public class King extends Piece {
         Position rockPosition2 = new Position(this.getPosition().getRow(), this.getPosition().getCol() - 2);
 
         if (this.checkValidMove(rockPosition1, whiteTeam, blackTeam)) {
+            
             validMoves.add(rockPosition1);
         }
         if (this.checkValidMove(rockPosition2, whiteTeam, blackTeam)) {

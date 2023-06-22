@@ -28,6 +28,11 @@ public class Handler implements MouseHandler {
 //        System.out.println(mouseEvent.getY());
 
         if (Game.getGameState() == GameState.ENDED) {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException ignored) {
+            }
+            System.exit(0);
         } else if (Game.getGameState() == GameState.WAITINGTOCHANGEPAWNFORANOTHERDEADPIECE) {
             Position positionClicked = Board.pixelToPosition((int) mouseEvent.getX(), (int) mouseEvent.getY());
 
