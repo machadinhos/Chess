@@ -81,6 +81,7 @@ public class Game {
                 selectedPiece.move(position.getRow(), position.getCol());
 
                 List<Piece> sameTeam;
+
                 if (teamPlaying == Team.WHITE) {
                     sameTeam = whitePieces;
                 } else {

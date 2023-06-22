@@ -407,6 +407,7 @@ public class King extends Piece {
                 } else {
                     towerCol = 7;
                 }
+
                 List<Piece> sameTeam;
 
                 if (super.getTeam() == Team.WHITE) {
@@ -416,8 +417,8 @@ public class King extends Piece {
                 }
 
                 for (Piece piece : sameTeam) {
-                    if (piece instanceof Tower tower && piece.getPosition().getCol() == towerCol) {
-                        if (tower.asMoved()) {
+                    if (piece instanceof Tower tower) {
+                        if (tower.asMoved() || piece.getPosition().getCol() != towerCol) {
                             return false;
                         }
                         break;
