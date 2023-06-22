@@ -428,7 +428,8 @@ public class King extends Piece {
                     if (piece instanceof Tower tower) {
                         if (tower.asMoved()) {
                             continue;
-                        } if (piece.getPosition().getCol() != towerCol) {
+                        }
+                        if (piece.getPosition().getCol() != towerCol) {
                             continue;
                         }
                         hasValidTower = true;
