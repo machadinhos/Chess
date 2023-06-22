@@ -3,7 +3,7 @@ package org.academiadecodigo.gamesweek.Pieces;
 import java.util.List;
 
 /**
- * The if an abstract class that represnts a generic chess piece.
+ * This is an abstract class that represnts a generic chess piece.
  * It provides common properties and methods for all chess pieces.
  */
 public abstract class Piece {
