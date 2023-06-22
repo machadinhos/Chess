@@ -144,8 +144,8 @@ public class Game {
             Board.hideValidMoves();
         }
         
-        List<Piece> sameTeam = new ArrayList<>();
-        List<Piece> enemyTeam = new ArrayList<>();
+        List<Piece> sameTeam;
+        List<Piece> enemyTeam;
         
         if (Game.teamPlaying == Team.WHITE) {
             sameTeam = whitePieces;
