@@ -51,8 +51,8 @@ public class PieceInitializer {
         pieces.add(new Tower(Team.BLACK, new Position(0, 0)));
         pieces.add(new Tower(Team.BLACK, new Position(0, 7)));
 
-        pieces.add(new Horse(Team.BLACK, new Position(0, 1))); // 0 1
-        pieces.add(new Horse(Team.BLACK, new Position(0, 6))); // 0 6
+        pieces.add(new Horse(Team.BLACK, new Position(0, 1)));
+        pieces.add(new Horse(Team.BLACK, new Position(0, 6)));
 
         pieces.add(new Bishop(Team.BLACK, new Position(0, 2)));
         pieces.add(new Bishop(Team.BLACK, new Position(0, 5)));
