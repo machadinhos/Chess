@@ -19,9 +19,9 @@ public class PieceInitializer {
 		
 		List<Piece> pieces = new ArrayList<>();
 		
-//		for (int i = 0; i < 8; i++) {
-//			pieces.add(new Pawn(Team.WHITE, new Position(6, i)));
-//		}
+		for (int i = 0; i < 8; i++) {
+			pieces.add(new Pawn(Team.WHITE, new Position(6, i)));
+		}
 		
 		pieces.add(new Tower(Team.WHITE, new Position(7, 0)));
 		pieces.add(new Tower(Team.WHITE, new Position(7, 7)));
@@ -48,9 +48,9 @@ public class PieceInitializer {
 		
 		List<Piece> pieces = new ArrayList<>();
 		
-//		for (int i = 0; i < 8; i++) {
-//			pieces.add(new Pawn(Team.BLACK, new Position(1, i)));
-//		}
+		for (int i = 0; i < 8; i++) {
+			pieces.add(new Pawn(Team.BLACK, new Position(1, i)));
+		}
 		
 		pieces.add(new Tower(Team.BLACK, new Position(0, 0)));
 		pieces.add(new Tower(Team.BLACK, new Position(0, 7)));
