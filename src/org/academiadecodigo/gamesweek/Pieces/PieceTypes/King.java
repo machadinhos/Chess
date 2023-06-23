@@ -98,7 +98,11 @@ public class King extends Piece {
 			for (Piece enemy : enemyTeam) {
 				if (enemy.getPosition().equals(new Position(row, col))) {
 					enemyTeamCopy.remove(enemy);
+					break;
 				}
+			}
+			
+			for (Piece enemy : enemyTeamCopy) {
 				if (super.getTeam() == Team.WHITE) {
 					if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, enemyTeamCopy)) {
 						isKingSafe = false;
@@ -133,7 +137,11 @@ public class King extends Piece {
 			for (Piece enemy : enemyTeam) {
 				if (enemy.getPosition().equals(new Position(row, col))) {
 					enemyTeamCopy.remove(enemy);
+					break;
 				}
+			}
+			
+			for (Piece enemy : enemyTeamCopy) {
 				if (super.getTeam() == Team.WHITE) {
 					if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, enemyTeamCopy)) {
 						isKingSafe = false;
@@ -168,7 +176,11 @@ public class King extends Piece {
 			for (Piece enemy : enemyTeam) {
 				if (enemy.getPosition().equals(new Position(row, col))) {
 					enemyTeamCopy.remove(enemy);
+					break;
 				}
+			}
+			
+			for (Piece enemy : enemyTeamCopy) {
 				if (super.getTeam() == Team.WHITE) {
 					if (enemy.checkValidMove(new Position(row, col), sameTeamCopy, enemyTeamCopy)) {
 						isKingSafe = false;

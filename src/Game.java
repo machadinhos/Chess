@@ -220,13 +220,19 @@ public class Game {
 	public static void changePawnTo (Piece piece) {
 		
 		Game.selectedPiece.die();
+		
 		Game.whitePieces.remove(Game.selectedPiece);
 		Game.blackPieces.remove(Game.selectedPiece);
+		
 		piece.move(selectedPiece.getPosition().getRow(), selectedPiece.getPosition().getCol());
+		
 		piece.initImage();
+		
 		Board.hideSelectAPieceMenu();
+		
 		Game.blackPiecesKilled.remove(piece);
 		Game.whitePiecesKilled.remove(piece);
+		
 		if (piece.getTeam() == Team.WHITE) {
 			Game.whitePieces.add(piece);
 		} else {
