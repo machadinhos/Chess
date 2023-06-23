@@ -20,8 +20,6 @@ public class Board {
 	private static List<Ellipse> validMovesEllipse;
 	private static List<Position> validMovesPositions;
 	private static List<Movable> selectAPieceMenu;
-	private static final Movable[] whiteTeamMaterialValue = new Movable[3];
-	private static final Movable[] blackTeamMaterialValue = new Movable[3];
 	
 	
 	public static void init () {
